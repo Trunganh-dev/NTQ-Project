@@ -10,7 +10,67 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190924061417) do
+ActiveRecord::Schema.define(version: 20190924075404) do
+
+  create_table "contents", force: :cascade do |t|
+    t.string "title"
+    t.string "thumbnail"
+    t.string "content"
+    t.string "level"
+    t.string "document"
+    t.date "startDate"
+    t.boolean "isDone"
+    t.boolean "isAppove"
+    t.integer "user_id"
+    t.integer "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_contents_on_group_id"
+    t.index ["user_id"], name: "index_contents_on_user_id"
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.string "name"
+    t.string "slug"
+    t.string "thumbnail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.string "thumbnail"
+    t.string "content"
+    t.string "document"
+    t.date "startDate"
+    t.date "endDate"
+    t.integer "user_id"
+    t.integer "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_events_on_group_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.string "slug"
+    t.string "decription"
+    t.string "thumbnail"
+    t.date "startdate"
+    t.integer "course_id"
+    t.index ["course_id", nil], name: "index_groups_on_course_id_and_created_at"
+    t.index ["course_id"], name: "index_groups_on_course_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "group_id"
+    t.string "roles"
+    t.string "status"
+    t.index ["group_id"], name: "index_roles_on_group_id"
+    t.index ["user_id"], name: "index_roles_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

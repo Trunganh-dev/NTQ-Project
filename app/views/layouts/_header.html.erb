@@ -1,0 +1,38 @@
+<div class="header_top">
+    <div class="row">
+        <div class="col-xs-12 col-sm-4" id="left">
+            <%= link_to image_tag("lg.png", alt: "Rails logo"), root_path %>
+        </div>
+        <div class="col-xs-12 col-sm-4" id="mid">
+            <div class="flow">
+                <div class="dropdown following">
+                    <a class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Following Classes
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ruby</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">PHP</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">C#</a></li>
+                        <li role="presentation" class="divider"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 " id="right">
+            <ul>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href=""><span class="glyphicon glyphicon-log-in"></span><%= link_to " Log In", user_google_oauth2_omniauth_authorize_path %></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="header_bot">
+    <div class="cover-image">
+       <%= image_tag("cv.jpeg", alt: "Rails logo",id:"cover-header") %>
+        <h2>Welcome to LNS</h2>
+    </div>
+</div>
