@@ -14,11 +14,12 @@ ActiveRecord::Schema.define(version: 20190924075404) do
 
   create_table "contents", force: :cascade do |t|
     t.string "title"
+    t.text "description"
     t.string "thumbnail"
-    t.string "content"
     t.string "level"
     t.string "document"
     t.date "startDate"
+    t.date "endDate"
     t.boolean "isDone"
     t.boolean "isAppove"
     t.integer "user_id"

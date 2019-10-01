@@ -29,7 +29,7 @@
                 <li id="profile" class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <img src="<%= current_user.pictures%>" alt="" id="avatar">
-                        <%= current_user.fullname.slice(0..10) %> 
+                        <%= current_user.fullname.slice(0..10) %>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
@@ -42,14 +42,8 @@
                 <% else %>
                 <li><%= link_to  "login", user_google_oauth2_omniauth_authorize_path %></li>
                 <% end %>
-                
+
             </ul>
         </div>
-    </div>
-</div>
-<div class="header_bot">
-    <div class="cover-image">
-        <%= image_tag("cv.jpeg", alt: "Rails logo",id:"cover-header") %>
-        <h2>Welcome to LNS</h2>
     </div>
 </div>
