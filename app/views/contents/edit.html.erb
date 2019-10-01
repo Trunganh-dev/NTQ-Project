@@ -14,7 +14,6 @@
           </div>
           <div class="col-sm-3">
             <%= select(:content, :level, [['Beginner','Beginner'],['intermediste','intermediste'],['expert','expert']],{ include_blank: true },class: "form-control" )   %>
-
           </div>
         </div>
       </div>
@@ -42,7 +41,7 @@
    <div class="form-group">
           <div class="col-sm-offset-4 col-sm-10">
             <div class="star">
-             <%= link_to 'Back', contents_path, class: "btn btn-danger" %>
+             <%= link_to 'Back', root_path, class: "btn btn-danger" %>
             <%= f.submit class: 'btn btn-primary btn-large' %>
           </div>
           </div>
