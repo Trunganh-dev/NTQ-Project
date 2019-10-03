@@ -19,7 +19,7 @@ class ContentsController < ApplicationController
 
 
   def create
-   @content = Content.new(content_params)
+   @content = current_user.contents.create(content_params)
   if @content.save
    flash[:success] = "Content was successfully created"
    redirect_to content_path(@content)
@@ -48,8 +48,8 @@ end
   private
 
     def content_params
-       params.require(:content).permit(:title, :description, :level, :startDate, :endDate)
-      end
+       params.require(:content).permit(:title, :description, :level, :startDate, :endDate , :user_id)
+    end
 
     def set_content
       @content = Content.find(params[:id])
