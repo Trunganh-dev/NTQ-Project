@@ -75,6 +75,9 @@
   .cover-image img {
     height: 550px;
     width: 1304px;
+    -webkit-filter: grayscale(1);    
+    filter: grayscale(1); 
+    -webkit-filter: brightness(0.5);
   }
 
   .header_bot .cover-image h2 {
@@ -255,7 +258,8 @@
 
   #main .row .box-main {
   	border: 1px solid rgb(221, 211, 221);
-  	min-height: 300px;
+    min-height: 400px;
+    height: auto;
   }
 
   .box-main h2 {
@@ -611,9 +615,17 @@
   }
 
   .lean {
+    width: 116px;
     position: absolute;
-    top: -47px;
+    top: -109px;
     left: 297px;
+  }
+
+  .lean h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(0, 0, 255);
+    text-transform: uppercase;
   }
   .cate {
     height: 60px;
@@ -641,7 +653,7 @@
   }
 
   .form-item {
-	width: 100%;
+	  width: 100%;
     min-height: 269px;
     height: auto;
     margin-left: 10px;
@@ -711,4 +723,55 @@
   .course {
     margin-top: 20px;
   }
+  #main .row .box-main .left-member {
+    margin-top: 15px;
+    float: left;
+    padding-left: 15px
+  }
 
+  #main .row .box-main .right-member {
+    margin-top: 15px;
+    width: 250px;
+    height: 90px;
+    border: 1px solid rgb(211, 202, 202);
+    float: left;
+    position: relative;
+  }
+  #ava-member {
+    width: 90px;
+    height: 90px;
+  }
+  #main .row .box-main .right-member p {
+    color: #30304e;
+     padding-left: 10px;
+     margin: 0;
+  }
+  #main .row .box-main .right-member .drop {
+    position: absolute;
+    top: -8px;
+    left: 230px;
+    width: 200px;
+  }
+
+  #main .row .box-main .right-member .drop li{
+    border: none;
+    width: 100px;
+    padding-left: 10px;
+    margin: 0;
+  }
+  #main .row .box-main .right-member .drop li a {
+    font-size: 12px;
+  }
+
+  .add {
+    width: 244px;
+    height: 34px;
+    padding-left: 10px;
+    margin-bottom: 19px;
+
+  }
+
+  .add-submit {
+    width: 50px;
+    height: 34px;
+  }
