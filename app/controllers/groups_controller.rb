@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  layout "layout_group"
+  layout "layout_group", only: [:show]
   before_action :logged_in_user, only: :create
 
   def index
@@ -19,14 +19,16 @@ class GroupsController < ApplicationController
       @group = Group.new(group_params)
       @group.slug = to_slug(params[:group][:name])
       @group.save
-      @role = Role.new
-      @role.user_id = current_user.id
-      @role.group_id = @group.id
-      @role.roles = 1
-      @role.status = 1
-      @role.save
-      flash[:success] = "Create new groups successfully"
-      redirect_to root_path
+      if @group.save
+        @role = Role.new
+        @role.user_id = current_user.id
+        @role.group_id = @group.id
+        @role.roles = 1
+        @role.status = 1
+        @role.save
+        flash[:success] = "Create new groups successfully"
+        redirect_to root_path
+      end
   end
 
   private

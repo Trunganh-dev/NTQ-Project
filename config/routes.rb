@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   }
   resources :users
   resources :groups
-  resource  :courses
+  resources :courses
+  resources :members
 end

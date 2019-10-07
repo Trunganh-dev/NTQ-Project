@@ -5,6 +5,9 @@ class Group < ApplicationRecord
 
     belongs_to :course
 
+    has_many :roles
+    has_many :users, through: :roles
+
     scope :running_by_course, -> (course_id) {
       where(course_id: course_id).where("startdate <= ?", Date.today)
     }
@@ -13,9 +16,4 @@ class Group < ApplicationRecord
       where(course_id: course_id).where("startdate > ?", Date.today)
     }
 
-    private
-    # Converts email to all lower-case.
-    def downcase_email
-      self.email = email.downcase
-    end
 end
