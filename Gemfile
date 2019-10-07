@@ -13,7 +13,8 @@ gem "omniauth"
 gem "omniauth-google-oauth2"
 gem "figaro"
 gem 'validates_timeliness', '~> 5.0.0.alpha3'
-gem 'date_validator'
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'carrierwave'
 gem 'mini_magick'
@@ -24,6 +25,7 @@ gem 'sqlite3'
 gem 'puma', '~> 3.7'
 # use Bootstrap
 gem 'bootstrap-sass','3.3.7'
+gem 'popper_js'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

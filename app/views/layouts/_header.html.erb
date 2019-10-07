@@ -1,7 +1,7 @@
 <div class="header_top">
     <div class="row">
         <div class="col-xs-12 col-sm-4" id="left">
-            <%= link_to image_tag("lg.png", alt: "Rails logo"), root_path %>
+            <%= link_to image_tag("lg.png", alt:"logo"), root_path %>
         </div>
         <div class="col-xs-12 col-sm-4" id="mid">
             <div class="flow">
@@ -9,12 +9,12 @@
                     <a class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Following Classes
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ruby</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">PHP</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">C#</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ruby 01</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ruby 02</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ruby 03</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ruby 04</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ruby 05</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ruby 06</a></li>
                         <li role="presentation" class="divider"></li>
                     </ul>
                 </div>
@@ -34,7 +34,6 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li> <%= link_to 'Edit profile', edit_user_registration_path %></li>
-
                         <li class="divider"></li>
                         <li>  <%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
                     </ul>

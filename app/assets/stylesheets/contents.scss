@@ -2,7 +2,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body {font-family: Arial;}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 .content-body {
  padding-top: 15px;
@@ -35,49 +38,14 @@ body {font-family: Arial;}
  font-size: 1.5em;
 }
 .bt-create {
- padding-left: 220px;
+ padding-left: 205px;
  padding-bottom:10px;
- padding-right: 732px;
+ padding-right: 205px;
 }
 .level-right{
 padding-right:30px;
 }
-
-
-.content-tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-}
-
-
-.content-tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-  font-size: 17px;
-}
-
-.content-tab button:hover {
-  background-color: #ddd;
-}
-
-.content-tab button.active {
-  background-color: #ccc;
-}
-
-
-.content-tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-}
-.background-image{
+.background-image-content{
   background-image: url("");
   width: 234px;
   height: 300px;
@@ -88,18 +56,38 @@ padding-right:30px;
 .content-group  {
   z-index: 4;
   position: absolute;
-  top: 40px;
+  top: 10px;
   left: 50px;
+}
+.content-status{
+background-color: #fff;
+width: 120px;
+height: 30px;
+position: relative;
+left:-35px;
+top: -10px;
+border-radius: 5px;
+
 }
 .date {
 padding-bottom: 10px;
 }
-.star {
+.content-star {
  margin-top: 10px;
+ margin-right:220px;
  }
-.szcontent{
-  padding-left:238px;
-  width:885px;
+ .content-dropmenu{
+font-size: 15px;
+text-decoration: none;
+font-color: darkgrey;
+ }
+.content-sz{
+  padding-left:127px;
+  width:1000px;
+}
+.content-center {
+  padding-bottom: 10px;
+  width: 100px;
 }
 .img-sz{
 width: 50px;
@@ -112,4 +100,24 @@ a.morelink {
 .morecontent span {
   display: none;
 }
-
+.menu-content-drop{
+  float: right;
+}
+a {
+  color: #0254EB
+}
+a:visited {
+  color: #0254EB
+}
+a.morelink {
+  text-decoration:none;
+  outline: none;
+}
+.morecontent span {
+  display: none;
+}
+.comment {
+  width: 400px;
+  background-color: #f0f0f0;
+  margin: 10px;
+}

@@ -2,7 +2,7 @@ class ContentsController < ApplicationController
   before_action :set_content, only: [:show, :edit, :update, :destroy]
 
   def index
-    @content = Content.all
+    @content = Content.order("created_at DESC").page(params[:page]).per(5)
   end
 
 
@@ -13,26 +13,27 @@ class ContentsController < ApplicationController
     @content = Content.new
   end
 
-
   def edit
+    respond_to do |format|
+    format.html
+    format.js
+    end
   end
-
 
   def create
    @content = current_user.contents.create(content_params)
   if @content.save
    flash[:success] = "Content was successfully created"
-   redirect_to content_path(@content)
+   redirect_to contents_path
   else
    render 'new'
   end
  end
 
-
   def update
   if @content.update(content_params)
    flash[:success] = "Content was updated"
-   redirect_to content_path(@content)
+   redirect_to contents_path
   else
    flash[:success] = "Content was not updated"
    render 'edit'
