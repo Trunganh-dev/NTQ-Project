@@ -15,8 +15,7 @@ class MembersController < ApplicationController
             @role.status = 2
             @role.save
             flash[:success] = "Add member success" 
-            @group = Group.find(id: params[:member][:group] )
-            redirect_to group_path(@group)
+            redirect_to root_path
         else
             flash[:danger] = "Email not ecist in system"
             redirect_to root_path
