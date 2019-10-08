@@ -29,7 +29,7 @@
                 <li id="profile" class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <img src="<%= current_user.pictures%>" alt="" id="avatar">
-                        <%= current_user.fullname.slice(0..10) %> 
+                        <%= current_user.fullname.slice(0..10) %>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
@@ -41,7 +41,7 @@
                 <% else %>
                 <li><%= link_to  "login", user_google_oauth2_omniauth_authorize_path %></li>
                 <% end %>
-                
+
             </ul>
         </div>
     </div>
@@ -51,4 +51,49 @@
         <%= image_tag("cv.jpeg", alt: "Cover",id:"cover-header") %>
     </div>
 </div>
+  <!-- menu group avatar group -->
+    <div class="container">
+        <div class="row" id="menuG">
+            <div class="col-md-3">
+                <div class="avatarGroup">
+                  <%= image_tag("ava.jpeg", alt: "Cover",id:"cover-header") %>
+                </div>
+                <div class="lean">
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Joined
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">Leave Group</a></li>
+                        </ul>
+                      </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="menugruop">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <%= link_to 'contents', content_url(group_id: @group.id) %>
+                        </li>
+                        <li>
+                            <a href="#">Member</a>
+                        </li>
+                        <li>
+                            <a href="#">Attendance</a>
+                        </li>
+                        <li>
+                            <a href="#">Calendar</a>
+                        </li>
+                        <li>
+                            <a href="#">Pending items</a>
+                        </li>
+                        <li>
+                            <a href="#">Settings</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+    <!-- end menu group avatar group -->
 

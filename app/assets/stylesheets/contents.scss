@@ -3,10 +3,6 @@
 @import "bootstrap";
 
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 .content-body {
  padding-top: 15px;
  padding-bottom: 15px;
@@ -104,10 +100,10 @@ a.morelink {
   float: right;
 }
 a {
-  color: #0254EB
+  color: #white;
 }
 a:visited {
-  color: #0254EB
+  color: #white;
 }
 a.morelink {
   text-decoration:none;

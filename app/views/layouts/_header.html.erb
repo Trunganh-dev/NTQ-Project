@@ -33,7 +33,7 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li> <%= link_to 'Edit profile', edit_user_registration_path %></li>
+                        <li> <%= link_to ' My Profile', user_path(current_user) %></li>
                         <li class="divider"></li>
                         <li>  <%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
                     </ul>
@@ -44,5 +44,56 @@
 
             </ul>
         </div>
+    </div>
+</div>
+<div class="header_bot">
+    <div class="cover-image">
+        <%= image_tag("cv.jpeg", alt: "Cover",id:"cover-header") %>
+        <h2>Welcome to Learning social networking</h2>
+            <% if user_signed_in? %>
+           <button class="open-button" onclick="openForm()">Create new group</button>
+            <div class="form-popup" id="myForm">
+                <%= form_for(:group, url: groups_path, html: {class: "form-container"}) do |f| %>
+                    <h1>Create new group</h1>
+                    <%= f.label :name, "Your group name" %>
+                    <%= f.text_field :name, class: 'form-control',:required => true %>
+
+                    <%= f.label :decription %>
+                    <%= f.text_field :decription, class: 'form-control',:required => true %>
+
+                    <%= f.label :startdate, "Start Date" %>
+                    <%= f.date_field :startdate, class: 'form-control',:required => true %>
+
+                    <%= f.label :course_id, class: "course"%>
+                    <%= f.collection_select :course_id, @cour.all, :id, :name %>
+
+                    <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+                    <%= f.submit "Done and publish", class: "btn btn-primary" %>
+
+            <% end %>
+            </div>
+            <div class="popup" onclick="myFunction()">Pick a Course
+                <div class="popuptext" id="myPopup">
+                    <ul>
+                        <% @cour.each do |course| %>
+                        <li class="course"><%= link_to  course.name, groups_url(course_id: course.id) %></li>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+            <script>
+                function openForm() {
+                    document.getElementById("myForm").style.display = "block";
+                }
+
+                function closeForm() {
+                    document.getElementById("myForm").style.display = "none";
+                }
+                function myFunction() {
+                    var popup = document.getElementById("myPopup");
+                    popup.classList.toggle("show");
+                }
+            </script>
+             <% end %>
     </div>
 </div>

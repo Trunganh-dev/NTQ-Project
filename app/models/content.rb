@@ -1,15 +1,16 @@
 class Content < ApplicationRecord
 
-validates :title, presence: true, length: { minimum: 6, maximum: 64 }
-validates :description, presence: true
-validates :startDate, presence: true
-validates :endDate, presence: true
-validates :level, presence: true
-validates :user_id, presence: true
-validate :valid_start_date
-validate :valid_end_date
+#validates :title, presence: true, length: { minimum: 6, maximum: 64 }
+#validates :description, presence: true
+#validates :startDate, presence: true
+#validates :endDate, presence: true
+#validates :level, presence: true
+#validates :user_id, presence: true
+#validate :valid_start_date
+#validate :valid_end_date
 
 belongs_to :user
+belongs_to :group
 
 
 private

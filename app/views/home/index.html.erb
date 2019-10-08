@@ -1,27 +1,22 @@
 <!-- main -->
-<div class="header_bot">
-    <div class="cover-image">
-        <%= image_tag("cv.jpeg", alt: "Rails logo",id:"cover-header") %>
-        <h2>Welcome to LNS</h2>
-    </div>
-</div>
-
     <div id="main">
         <div class="container">
             <div class="row">
                 <div class="col-sm-3 col-lg-1 main-left"></div>
                 <div class="col-sm-6 col-lg-7 main-mid">
                     <div class="box-main">
-                        <h2>Category</h2>
+                        <h2>Course</h2>
                         <ul>
-                            <li><a href="">java</a></li>
-                            <li><a href="">PHP</a></li>
-                            <li><a href="">Tester</a></li>
-                            <li><a href="">C#</a></li>
-                            <li><a href="">C++</a></li>
-                            <li><a href="">Ruby</a></li>
-                            <li><%= session["email"] %> </li>
+                                <% @course.each do |course| %>
+                                    <li class="course"><%= link_to  course.name, groups_url(course_id: course.id) %></li>
+                                <% end %>
+                                <div class = "paginate">
+                                     <%= paginate @course, theme: 'twitter-bootstrap-3' %>
+                                </div>
+
                         </ul>
+
+
                     </div>
                 </div>
                 <div class="col-sm-3 col-lg-4 main-right">
@@ -116,10 +111,7 @@
                                 <option value=2029>2029</option>
                                 <option value=2030>2030</option>
                             </select></form>
-
-
                     </div>
-                    <script src="js/scripts.js"></script>
                 </div>
             </div>
 
