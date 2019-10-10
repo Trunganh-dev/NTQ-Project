@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
  <div id="main">
         <div class="container">
             <div class="row">
@@ -21,8 +24,7 @@
                                                 <p>
                                                     <i class="glyphicon glyphicon-envelope"></i> <%= @user.email %>
                                                     <br />
-                                                    <i class="glyphicon glyphicon-globe"></i><a
-                                                        href="http://www.skype.com"> www.Skype.com</a>
+                                                    <i class="glyphicon glyphicon-globe"></i>Ngày join vào hệ thống: <%= @user.created_at %>
                                                     <br />
                                                     <i class="glyphicon glyphicon-gift"></i>June 02, 1996</p>
                                                 <!-- Split button -->
@@ -44,6 +46,42 @@
                                                         <li><a href="#">Github</a></li>
                                                     </ul>
                                                 </div>
+
+                                            </div>
+                                            <div class="nav-profile" style="margin-left: 12px;"> 
+
+                                                    <ul class="nav nav-tabs">
+                                                        <li class="active"><a data-toggle="tab" href="#home">About</a></li>
+                                                        <li><a data-toggle="tab" href="#menu3">History</a></li>
+                                                    </ul>
+
+                                                </div>
+                                                <div class="tab-content" style="padding-left: 12px;">
+                                                    <div id="home" class="tab-pane fade in active">
+                                                    <h3>About</h3>
+                                                    <p>I hate Béo!!!</p>
+                                                    </div>
+                                                    
+                                                    <div id="menu3" class="tab-pane fade">
+                                                        <table class="table table-hover">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>Date</th>
+                                                                <th>Join Group</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <tr>
+                                                                <td>3/10/2019</td>
+                                                                <td>PHP 01</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>4/10/2019e</td>
+                                                                <td>Ruby 03</td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                             </div>
                                         </div>
                                     </div>

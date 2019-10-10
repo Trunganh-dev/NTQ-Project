@@ -17,4 +17,5 @@ class Group < ApplicationRecord
       where(course_id: course_id).where("startdate > ?", Date.today)
     }
 
+
 end

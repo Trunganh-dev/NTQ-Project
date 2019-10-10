@@ -13,6 +13,7 @@
 //= require jquery
 //= require popper
 //= require bootstrap
+//= require select2
 //= require rails-ujs
 //= require ckeditor/config
 //= require turbolinks

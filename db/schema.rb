@@ -80,7 +80,9 @@ ActiveRecord::Schema.define(version: 20191010015007) do
     t.string "thumbnail"
     t.date "startdate"
     t.integer "course_id"
-    t.index ["course_id", nil], name: "index_groups_on_course_id_and_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id", "created_at"], name: "index_groups_on_course_id_and_created_at"
     t.index ["course_id"], name: "index_groups_on_course_id"
   end
 
@@ -89,6 +91,8 @@ ActiveRecord::Schema.define(version: 20191010015007) do
     t.integer "group_id"
     t.string "roles"
     t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_roles_on_group_id"
     t.index ["user_id"], name: "index_roles_on_user_id"
   end

@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   end
   resources :courses
   resources :members
+  resources :details
 end
