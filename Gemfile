@@ -64,6 +64,8 @@ group :development do
   gem 'ransack'     
   # giao diện đẹp cho phân trang
   gem 'bootstrap-kaminari-views' 
+  # Select
+  gem "select2-rails"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
