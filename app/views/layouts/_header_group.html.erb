@@ -3,7 +3,7 @@
         <div class="col-xs-12 col-sm-4" id="left">
             <%= link_to image_tag("lg.png", alt:"logo"), root_path %>
         </div>
-        <div class="col-xs-12 col-sm-4" id="mid">
+        <div class="col-xs-12 col-sm-2" id="mid">
             <div class="flow">
                 <div class="dropdown following">
                     <a class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Following Classes
@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-4 " id="right">
+        <div class="col-xs-12 col-sm-6 " id="right">
             <ul>
                 <li><a href="#">Help</a></li>
                 <li><a href="#">Contact</a></li>
@@ -28,7 +28,7 @@
                 <li id="profile" class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <img src="<%= current_user.pictures%>" alt="" id="avatar">
-                        <%= current_user.fullname.slice(0..10) %> 
+                        <%= current_user.fullname %>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
@@ -40,7 +40,7 @@
                 <% else %>
                 <li><%= link_to  "login", user_google_oauth2_omniauth_authorize_path %></li>
                 <% end %>
-                
+
             </ul>
         </div>
     </div>
@@ -50,8 +50,7 @@
         <%= image_tag("hero_1.jpg", alt: "Cover",id:"cover-header") %>
     </div>
 </div>
-
-<!-- menu group avatar group -->
+  <!-- menu group avatar group -->
     <div class="container">
         <div class="row" id="menuG">
             <div class="col-md-3">
@@ -59,7 +58,6 @@
                   <%= image_tag("ava.jpeg", alt: "Cover",id:"cover-header") %>
                 </div>
                 <div class="lean">
-                    <h2><%= @group.name %></h2>
                     <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Joined
                         <span class="caret"></span></button>
@@ -67,16 +65,16 @@
                           <li><a href="#">Leave Group</a></li>
                         </ul>
                       </div>
-                </div>   
+                </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <div class="menugruop">
                     <ul class="nav navbar-nav">
-                        <li class="">
-                            <a href="#">Content</a>
-                        </li>   
+                        <li class="active">
+                            <%= link_to 'contents', group_path(@group) %>
+                        </li>
                         <li>
-                            <%= link_to  "Member", member_url(group_id: @group.id) %>
+                            <a href="#">Member</a>
                         </li>
                         <li>
                             <a href="#">Attendance</a>
@@ -90,10 +88,10 @@
                         <li>
                             <a href="#">Settings</a>
                         </li>
-                    </ul>     
+                    </ul>
                 </div>
             </div>
             <div class="col-md-3"></div>
         </div>
     </div>
-<!-- end menu group avatar group -->
+    <!-- end menu group avatar group -->

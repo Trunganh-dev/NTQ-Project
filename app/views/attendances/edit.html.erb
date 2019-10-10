@@ -1,0 +1,47 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+    <h4 align="center" class="modal-title" id="myModalLabel">Update New <%= @content.title %> </h4>
+    <%=render 'shared/errors', obj: @content %>
+     </div>
+      <%=form_for(@attendance, validate: true, remote: true, :html=> {role: "form",style: "display:inline;"}) do |f| %>
+        <div class="modal-body">
+          <div class="form-group">
+            <div class="date">
+              <div class="row">
+                <div class="col-sm-6">
+                 <%= image_tag( "ava.jpg", alt: "Rails", class: "background-image-content" )%>
+                </div>
+                <div class="col-sm-6">
+                  <%= current_user.fullname %>
+                </div>
+              </div>
+            </div>
+            <div class="date">
+              <div class="row">
+                <div class="col-sm-6">
+                   <%= current_user.email %>
+                </div>
+                <div class="col-sm-6">
+                  <%=f.text_field :note ,class: "form-control", placeholder: "note", autofocus: true %>
+                </div>
+              </div>
+            </div>
+            <div class="date">
+              <div class="row">
+                <div class="col-sm-12">
+                  <%= f.checkbox :present, class: "form-control", placeholder: "Body of content" %>
+                </div>
+              </div>
+            </div>
+          </div>
+         </div>
+            <div class="modal-footer">
+              <div class="content-star">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                <%=f.submit "Save", class: 'btn btn-primary btn-large' %>
+              </div>
+            </div>
+          <% end %>
+  </div>
+</div>
