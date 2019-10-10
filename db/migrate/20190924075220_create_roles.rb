@@ -6,7 +6,7 @@ class CreateRoles < ActiveRecord::Migration[5.1]
       t.string  :roles
       t.string  :status
 
-      t.timestamp()
+      t.timestamps
     end
   end
 end

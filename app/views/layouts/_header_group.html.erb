@@ -9,12 +9,11 @@
                     <a class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Following Classes
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ruby 01</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ruby 02</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ruby 03</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ruby 04</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ruby 05</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ruby 06</a></li>
+                        <% if user_signed_in? %>
+                            <% @following.each do |follow| %>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> <%= follow.name %></a></li>
+                            <% end %>
+                        <% end %>
                         <li role="presentation" class="divider"></li>
                     </ul>
                 </div>

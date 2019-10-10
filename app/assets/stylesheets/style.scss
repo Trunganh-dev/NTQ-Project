@@ -732,14 +732,14 @@
   #main .row .box-main .right-member {
     margin-top: 15px;
     width: 250px;
-    height: 90px;
+    height: 139px;
     border: 1px solid rgb(211, 202, 202);
     float: left;
     position: relative;
   }
   #ava-member {
     width: 90px;
-    height: 90px;
+    height: 139px;
   }
   #main .row .box-main .right-member p {
     color: #30304e;
@@ -775,3 +775,48 @@
     width: 50px;
     height: 34px;
   }
+
+  .box-main .nav-profile li {
+    list-style: none;
+    border: none;
+    width: auto;
+    padding: 0;
+    margin: 0;
+  }
+
+  .select2 {
+    width: 490px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+  }
+
+// modal  
+.modal-body {
+  width: 100%;
+  height: auto;
+}
+.top-detail {
+  width: 100%;
+  height: 129px;
+  }
+
+.top-detail .top-detail-left {
+  float: left;
+
+}
+.top-detail .top-detail-left img {
+  width: 100px;
+  height: 109px;
+}
+
+.top-detail .top-detail-right {
+  float: left;
+}
+
+.top-detail .top-detail-right p {
+  padding-left: 10px;
+}
+
+
+// end modal

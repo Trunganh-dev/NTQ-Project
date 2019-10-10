@@ -4,81 +4,632 @@
     <div class="row">
       <div class="col-sm-6 col-lg-8 main-mid">
         <div class="box-main">
-        
+
+          <% if  @role_current_user.nil? %>
+          <!-- captian -->
+          <% @captain.each do |captain| %>
           <div class="left-member">
-            <%= image_tag("ava.jpeg",id:"ava-member") %>
+            <img src="<%= captain.pictures %>" alt="" id="ava-member">
           </div>
           <div class="right-member">
-            <p>Nguyen Tuan Kiet <span class="glyphicon glyphicon-star" aria-hidden="true"></span></p>
-            <p>Joined date:</p>
-            <p>Gmail:</p>
-            <p>Skype</p>
+            <p> <%= captain.fullname %><span class="glyphicon glyphicon-star" aria-hidden="true"></span></p>
+            <p>Joined date: 3/10/2019</p>
+            <p>Gmail: <%= captain.email %></p>
+            <p>Skype: 11122425</p>
+            <!-- Modal -->
+            <button class="btn btn-primary" data-target="#myModal" data-toggle="modal" type="button">
+              Detail
+            </button>
+            <div aria-labelledby="myModalLabel" class="modal fade" id="myModal" role="dialog" tabindex="-1">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                      <span aria-hidden="true">
+                        ×
+                      </span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                      Member Detail
+                    </h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class="top-detail">
+                      <div class="top-detail-left">
+                        <img src="<%= captain.pictures %>">
+                      </div>
+                      <div class="top-detail-right">
+                        <p>
+                          <%= captain.fullname %>
+                        </p>
+                        <p>
+                          Joined date: 3/10/2019
+                        </p>
+                        <p>
+                          Gmail: <%= captain.email %>
+                        </p>
+                        <p>
+                          Skype: 11122425
+                        </p>
+                      </div>
+                    </div>
+                    <div class="bottom-detail">
+                      <div class="nav-profile" style="margin-left: 12px;">
+
+                        <ul class="nav nav-tabs">
+                          <li class="active"><a data-toggle="tab" href="#home">About</a></li>
+                          <li><a data-toggle="tab" href="#menu3">History</a></li>
+                        </ul>
+
+                      </div>
+                      <div class="tab-content" style="padding-left: 12px;">
+                        <div id="home" class="tab-pane fade in active">
+                          <h3>About</h3>
+                          <p>I hate Béo!!!</p>
+                        </div>
+
+                        <div id="menu3" class="tab-pane fade">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th>Date</th>
+                                <th>Join Group</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>3/10/2019</td>
+                                <td>PHP 01</td>
+                              </tr>
+                              <tr>
+                                <td>4/10/2019e</td>
+                                <td>Ruby 03</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-danger" data-dismiss="modal" type="button">
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end Modal -->
           </div>
+          <% end %>
+          <!-- end captian -->
 
-
+          <!-- mentor -->
+          <% @mentor.each do |mentor| %>
           <div class="left-member">
-            <%= image_tag("ava.jpeg",id:"ava-member") %>
+            <img src="<%= mentor.pictures %>" alt="" id="ava-member">
           </div>
           <div class="right-member">
-            <p id="name-mamber">Nguyen Tuan Kiet <span class="glyphicon glyphicon-user" aria-hidden="true"></span></p>
+            <p id="name-mamber"> <%= mentor.fullname %><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            </p>
             <p>Joined date: 11/02/1971</p>
-            <p>Gmail: Tuankiet@gmail.com</p>
+            <p>Gmail: <%= mentor.email %></p>
+            <p>Skype: 13348882</p>
+            <!-- Modal -->
+            <button class="btn btn-primary" data-target="#myModal-<%= mentor.id%>" data-toggle="modal" type="button">
+              detail
+            </button>
+            <div aria-labelledby="myModalLabel" class="modal fade" id="myModal-<%= mentor.id%>" role="dialog" tabindex="-1">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                      <span aria-hidden="true">
+                        ×
+                      </span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                      Member Detail
+                    </h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class="top-detail">
+                      <div class="top-detail-left">
+                        <img src="<%= mentor.pictures %>">
+                      </div>
+                      <div class="top-detail-right">
+                        <p>
+                           <%= mentor.fullname %>
+                        </p>
+                        <p>
+                          Joined date: 3/10/2019
+                        </p>
+                        <p>
+                          Gmail: <%= mentor.email %>
+                        </p>
+                        <p>
+                          Skype: 11122425
+                        </p>
+                        <p>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="bottom-detail">
+                      <div class="nav-profile" style="margin-left: 12px;">
+
+                        <ul class="nav nav-tabs">
+                          <li class="active"><a data-toggle="tab" href="#home">About</a></li>
+                          <li><a data-toggle="tab" href="#menu3">History</a></li>
+                        </ul>
+
+                      </div>
+                      <div class="tab-content" style="padding-left: 12px;">
+                        <div id="home" class="tab-pane fade in active">
+                          <h3>About</h3>
+                          <p>I hate Béo!!!</p>
+                        </div>
+
+                        <div id="menu3" class="tab-pane fade">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th>Date</th>
+                                <th>Join Group</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>3/10/2019</td>
+                                <td>PHP 01</td>
+                              </tr>
+                              <tr>
+                                <td>4/10/2019e</td>
+                                <td>Ruby 03</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-danger" data-dismiss="modal" type="button">
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end Modal -->
+          </div>
+          <% end %>
+          <!-- end mentor -->
+
+          <!-- members -->
+          <% @members.each do |member| %>
+          <div class="left-member">
+            <img src="<%= member.pictures %>" alt="" id="ava-member">
+          </div>
+          <div class="right-member">
+            <p id="name-mamber"><%= member.fullname %><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            </p>
+            <p>Joined date: 11/02/1971</p>
+            <p>Gmail: <%= member.email %></p>
+            <p>Skype: 45623253</p>
+          </div>
+          <!-- Modal -->
+          <button class="btn btn-primary" data-target="#myModal-<%= member.id %>" data-toggle="modal" type="button">
+            Launch
+          </button>
+          <div aria-labelledby="myModalLabel" class="modal fade" id="myModal-<%= member.id %>" role="dialog" tabindex="-1">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">
+                      ×
+                    </span>
+                  </button>
+                  <h4 class="modal-title" id="myModalLabel">
+                    Member Detail
+                  </h4>
+                </div>
+                <div class="modal-body">
+                  <div class="top-detail">
+                    <div class="top-detail-left">
+                      <img alt="" id="ava-member" src="ava.jpg">
+                    </div>
+                    <div class="top-detail-right">
+                      <p>
+                        <%= member.fullname %>
+                      </p>
+                      <p>
+                        Joined date: 3/10/2019
+                      </p>
+                      <p>
+                        Gmail: <%= member.email %>
+                      </p>
+                      <p>
+                        Skype: 11122425
+                      </p>
+                      
+                    </div>
+                  </div>
+                  <div class="bottom-detail">
+                      <div class="nav-profile" style="margin-left: 12px;">
+
+                        <ul class="nav nav-tabs">
+                          <li class="active"><a data-toggle="tab" href="#home">About</a></li>
+                          <li><a data-toggle="tab" href="#menu3">History</a></li>
+                        </ul>
+
+                      </div>
+                      <div class="tab-content" style="padding-left: 12px;">
+                        <div id="home" class="tab-pane fade in active">
+                          <h3>About</h3>
+                          <p> Béo manh me!!!</p>
+                        </div>
+
+                        <div id="menu3" class="tab-pane fade">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th>Date</th>
+                                <th>Join Group</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>3/10/2019</td>
+                                <td>PHP 01</td>
+                              </tr>
+                              <tr>
+                                <td>4/10/2019e</td>
+                                <td>Ruby 03</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-danger" data-dismiss="modal" type="button">
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end Modal -->
+          <% end %>
+          <!-- end members -->
+
+          <% else %>
+          <!-- captian -->
+          <% @captain.each do |captain| %>
+          <div class="left-member">
+            <img src="<%= captain.pictures %>" alt="" id="ava-member">
+          </div>
+          <div class="right-member">
+            <p> <%= captain.fullname %><span class="glyphicon glyphicon-star" aria-hidden="true"></span></p>
+            <p>Gmail: <%= captain.email %></p>
+            <p>Skype: </p>
+            <p>Joined date: 3/10/2019</p>
+            <!-- Modal -->
+            <button class="btn btn-primary" data-target="#myModal-<%= captain.id %>" data-toggle="modal" type="button">
+              detail
+            </button>
+            <div aria-labelledby="myModalLabel" class="modal fade" id="myModal-<%= captain.id %>" role="dialog" tabindex="-1">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                      <span aria-hidden="true">
+                        ×
+                      </span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                      Member Detail
+                    </h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class="top-detail">
+                      <div class="top-detail-left">
+                        <img alt="" id="ava-member" src="<%= captain.pictures %>">
+                      </div>
+                      <div class="top-detail-right">
+                        <p>
+                          <%= captain.fullname %>
+                        </p>
+                        <p>
+                          Joined date: 3/10/2019
+                        </p>
+                        <p>
+                          Gmail: <%= captain.email %>
+                        </p>
+                        <p>
+                          Skype: 11122425
+                        </p>
+                      
+                      </div>
+                    </div>
+                    <div class="bottom-detail">
+                        <div class="nav-profile" style="margin-left: 12px;">
+
+                        <ul class="nav nav-tabs">
+                          <li class="active"><a data-toggle="tab" href="#home">About</a></li>
+                          <li><a data-toggle="tab" href="#menu3">History</a></li>
+                        </ul>
+
+                      </div>
+                      <div class="tab-content" style="padding-left: 12px;">
+                        <div id="home" class="tab-pane fade in active">
+                          <h3>About</h3>
+                          <p> Béo dang yeu!!!</p>
+                        </div>
+
+                        <div id="menu3" class="tab-pane fade">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th>Date</th>
+                                <th>Join Group</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>3/10/2019</td>
+                                <td>PHP 01</td>
+                              </tr>
+                              <tr>
+                                <td>4/10/2019e</td>
+                                <td>Ruby 03</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-danger" data-dismiss="modal" type="button">
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end Modal -->
+          </div>
+          <% end %>
+          <!-- end captian -->
+
+          <!-- mentor -->
+          <% @mentor.each do |mentor| %>
+          <div class="left-member">
+            <img src="<%= mentor.pictures %>" alt="" id="ava-member">
+          </div>
+          <div class="right-member">
+            <p id="name-mamber"><%= mentor.fullname %> <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            </p>
+            <p>Joined date: 11/02/1971</p>
+            <p>Gmail: <%= mentor.email %></p>
+            <p>Skype: 33002625</p>
+            <div class="drop">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown">...
+                <ul class="dropdown-menu">
+                  <li><a href="#">Remove</a></li>
+                  <li><a href="#">Remove Mentor</a></li>
+                  <li><a href="#">set Captain</a></li>
+                </ul>
+            </div>
+            <!-- Modal -->
+            <button class="btn btn-primary" data-target="#myModal-<%= mentor.id %>" data-toggle="modal" type="button">
+              detail
+            </button>
+            <div aria-labelledby="myModalLabel" class="modal fade" id="myModal-<%= mentor.id %>" role="dialog" tabindex="-1">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                      <span aria-hidden="true">
+                        ×
+                      </span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                      Member Detail
+                    </h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class="top-detail">
+                      <div class="top-detail-left">
+                        <img alt="" id="ava-member" src="<%= mentor.pictures %>">
+                      </div>
+                      <div class="top-detail-right">
+                        <p>
+                          <%= mentor.fullname %>
+                        </p>
+                        <p>
+                          Joined date: 3/10/2019
+                        </p>
+                        <p>
+                          Gmail: <%= mentor.email %>
+                        </p>
+                        <p>
+                          Skype: 11122425
+                        </p>
+                       
+                      </div>
+                    </div>
+                    <div class="bottom-detail">
+                       <div class="nav-profile" style="margin-left: 12px;">
+
+                        <ul class="nav nav-tabs">
+                          <li class="active"><a data-toggle="tab" href="#home">About</a></li>
+                          <li><a data-toggle="tab" href="#menu3">History</a></li>
+                        </ul>
+
+                      </div>
+                      <div class="tab-content" style="padding-left: 12px;">
+                        <div id="home" class="tab-pane fade in active">
+                          <h3>About</h3>
+                          <p>I yeu Béo!!!</p>
+                        </div>
+
+                        <div id="menu3" class="tab-pane fade">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th>Date</th>
+                                <th>Join Group</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>3/10/2019</td>
+                                <td>PHP 01</td>
+                              </tr>
+                              <tr>
+                                <td>4/10/2019e</td>
+                                <td>Ruby 03</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-danger" data-dismiss="modal" type="button">
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end Modal -->
+          </div>
+          <% end %>
+          <!-- end mentor -->
+
+          <!-- members -->
+          <% @members.each do |member| %>
+          <div class="left-member">
+            <img src="<%= member.pictures %>" alt="" id="ava-member">
+          </div>
+          <div class="right-member">
+            <p id="name-mamber"><%= member.fullname %></p>
+            <p>Joined date: 11/02/1971</p>
+            <p>Gmail: <%= member.email %></p>
             <p>Skype: </p>
             <div class="drop">
-            <a href="" class="dropdown-toggle" data-toggle="dropdown">...
-            <ul class="dropdown-menu">
-              <li><a href="#">Remove</a></li>
-              <li><a href="#">Remove Mentor</a></li>
-              <li><a href="#">set Captain</a></li>
-            </ul>
-             </div>
-          </div>
+              <a href="" class="dropdown-toggle" data-toggle="dropdown">...
+                <ul class="dropdown-menu">
+                  <li><a href="#">Remove</a></li>
+                  <li><a href="#">Remove Mentor</a></li>
+                  <li><a href="#">set Captain</a></li>
+                </ul>
+            </div>
+            <!-- Modal -->
+            <button class="btn btn-primary" data-target="#myModal-<%= member.id %>" data-toggle="modal" type="button">
+              detail
+            </button>
+            <div aria-labelledby="myModalLabel" class="modal fade" id="myModal-<%= member.id %>" role="dialog" tabindex="-1">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                      <span aria-hidden="true">
+                        ×
+                      </span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                      Member Detail
+                    </h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class="top-detail">
+                      <div class="top-detail-left">
+                        <img alt="" id="ava-member" src="<%= member.pictures %>">
+                      </div>
+                      <div class="top-detail-right">
+                        <p>
+                          <%= member.fullname %>
+                        </p>
+                        <p>
+                          Joined date: 3/10/2019
+                        </p>
+                        <p>
+                          Gmail:<%= member.email %>
+                        </p>
+                        <p>
+                          Skype: 11122425
+                        </p>
+                    
+                      </div>
+                    </div>
+                    <div class="bottom-detail">
+                        <div class="nav-profile" style="margin-left: 12px;">
 
-          <div class="left-member">
-            <%= image_tag("ava.jpeg",id:"ava-member") %>
-          </div>
-          <div class="right-member">
-            <p>Nguyen Tuan Kiet <span class="glyphicon glyphicon-user" aria-hidden="true"></span></p>
-            <p>Joined date: 11/02/1971</p>
-            <p>Gmail: Tuankiet@gmail.com</p>
-            <p>Skype: </p>
-            <div class="drop">
-            <a href="" class="dropdown-toggle" data-toggle="dropdown">...
-            <ul class="dropdown-menu">
-              <li><a href="#">Remove</a></li>
-              <li><a href="#">Remove Mentor</a></li>
-              <li><a href="#">set Captain</a></li>
-            </ul>
-             </div>
-          </div>
+                        <ul class="nav nav-tabs">
+                          <li class="active"><a data-toggle="tab" href="#home">About</a></li>
+                          <li><a data-toggle="tab" href="#menu3">History</a></li>
+                        </ul>
 
-          <div class="left-member">
-            <%= image_tag("ava.jpeg",id:"ava-member") %>
-          </div>
-          <div class="right-member">
-            <p>Nguyen Tuan Kiet <span class="glyphicon glyphicon-user" aria-hidden="true"></span></p>
-            <p>Joined date: 11/02/1971</p>
-            <p>Gmail: Tuankiet@gmail.com</p>
-            <p>Skype: </p>
-            <div class="drop">
-            <a href="" class="dropdown-toggle" data-toggle="dropdown">...
-            <ul class="dropdown-menu">
-              <li><a href="#">Remove</a></li>
-              <li><a href="#">Remove Mentor</a></li>
-              <li><a href="#">set Captain</a></li>
-            </ul>
-             </div>
-          </div>
+                      </div>
+                      <div class="tab-content" style="padding-left: 12px;">
+                        <div id="home" class="tab-pane fade in active">
+                          <h3>About</h3>
+                          <p>I love Béo!!!</p>
+                        </div>
 
+                        <div id="menu3" class="tab-pane fade">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th>Date</th>
+                                <th>Join Group</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>3/10/2019</td>
+                                <td>PHP 01</td>
+                              </tr>
+                              <tr>
+                                <td>4/10/2019e</td>
+                                <td>Ruby 03</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-danger" data-dismiss="modal" type="button">
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end Modal -->
+          </div>
+          <% end %>
+          <!-- end members -->
+          <% end %>
         </div>
       </div>
+
       <div class="col-sm-3 col-lg-4 main-right">
         <div class="form">
-       
-          <%= form_for(:members, url: members_path) do |f| %>     
-            <%= f.text_field :email,class: "add",:required => true,placeholder: "Add member this class..." %>
-            <input type="hidden" name="group" value="<%= @group.id %>">
-            <%= f.submit "add", class: "add-submit" %>
+
+          <%= form_for(:member, url: members_path) do |f| %>
+          <%= f.text_field :email,class: "add",:required => true,placeholder: "Add member this class..." %>
+          <input type="hidden" name="member[group_id]" value="<%= @group.id %>">
+          <%= f.submit "add", class: "add-submit" %>
           <% end %>
         </div>
         <div class="box-main">

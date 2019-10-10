@@ -8,7 +8,7 @@ class CreateGroups < ActiveRecord::Migration[5.1]
       t.date   :startdate
       t.references :course, foreign_key: true
 
-      t.timestamp()
+      t.timestamps
     end
     add_index :groups, [:course_id, :created_at]
   end
