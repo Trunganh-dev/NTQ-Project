@@ -4,34 +4,33 @@
     <h4 align="center" class="modal-title" id="myModalLabel">Update New <%= @content.title %> </h4>
     <%=render 'shared/errors', obj: @content %>
      </div>
-      <%=form_for([@group, @content], validate: true, remote: true, :html=> {role: "form",style: "display:inline;"}) do |f| %>
+      <%=form_for(@attendance, validate: true, remote: true, :html=> {role: "form",style: "display:inline;"}) do |f| %>
         <div class="modal-body">
           <div class="form-group">
             <div class="date">
               <div class="row">
                 <div class="col-sm-6">
-                  <%=f.text_field :title,class: "form-control", placeholder: "Title", autofocus: true, required: true  %>
+                 <%= image_tag( "ava.jpg", alt: "Rails", class: "background-image-content" )%>
                 </div>
                 <div class="col-sm-6">
-                  <%=select(:content, :level, [[ 'Beginner', 'Beginner'],[ 'intermediste', 'intermediste'],[ 'expert', 'expert']],{ include_blank: true },class: "form-control" )
-                  %>
+                  <%= current_user.fullname %>
                 </div>
               </div>
             </div>
             <div class="date">
               <div class="row">
                 <div class="col-sm-6">
-                  <%=f.date_field :startDate,class: "form-control", placeholder: "Start Date", required: true %>
+                   <%= current_user.email %>
                 </div>
                 <div class="col-sm-6">
-                  <%=f.date_field :endDate, class: "form-control", placeholder: "End Date", required: true  %>
+                  <%=f.text_field :note ,class: "form-control", placeholder: "note", autofocus: true %>
                 </div>
               </div>
             </div>
             <div class="date">
               <div class="row">
                 <div class="col-sm-12">
-                  <%=f.cktext_area :description,rows: 50, class: "form-control", placeholder: "Body of content", required: true  %>
+                  <%= f.checkbox :present, class: "form-control", placeholder: "Body of content" %>
                 </div>
               </div>
             </div>

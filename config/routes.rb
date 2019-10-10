@@ -5,11 +5,14 @@ Rails.application.routes.draw do
   root 'home#index'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
   mount Ckeditor::Engine => '/ckeditor'
 
-  resources :contents
   resources :users
-  resources :groups
-  resource  :courses
-
+  resources :attendances
+  resources :groups do
+    resources :contents, except: [:show, :index]
+  end
+  resources :courses
+  resources :members
 end

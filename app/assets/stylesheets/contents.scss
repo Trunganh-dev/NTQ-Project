@@ -65,21 +65,21 @@ top: -10px;
 border-radius: 5px;
 
 }
-.date {
+.content-date {
 padding-bottom: 10px;
 }
 .content-star {
- margin-top: 10px;
- margin-right:220px;
+ padding-bottom: 10px;
+padding-top: 10px;
  }
- .content-dropmenu{
+ .content-drop{
 font-size: 15px;
 text-decoration: none;
-font-color: darkgrey;
+color: darkgrey;
  }
 .content-sz{
   padding-left:127px;
-  width:1000px;
+  width:980px;
 }
 .content-center {
   padding-bottom: 10px;
@@ -116,4 +116,13 @@ a.morelink {
   width: 400px;
   background-color: #f0f0f0;
   margin: 10px;
+}
+.content-create-sz{
+  font-size: 12px;
+  padding-left: 35px;
+  line-height: 25px;
+}
+.content-button{
+  padding-top: 30px;
+  padding-left: 20px;
 }

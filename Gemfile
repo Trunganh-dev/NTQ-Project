@@ -19,6 +19,7 @@ gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'pry-rails'
+gem 'client_side_validations'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -66,11 +67,11 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry-rails'
   # gíup phân trang
-  gem 'kaminari'      
+  gem 'kaminari'
   # tạo form tìm kiếm
-  gem 'ransack'     
+  gem 'ransack'
   # giao diện đẹp cho phân trang
-  gem 'bootstrap-kaminari-views' 
+  gem 'bootstrap-kaminari-views'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -1,13 +1,9 @@
 class ContentsController < ApplicationController
   before_action :set_content, only: [:show, :edit, :update, :destroy]
+  before_action :set_group
+  before_action :authenticate_user!
 
-  def index
-    @content = Content.order("created_at DESC").page(params[:page]).per(5)
-  end
-
-
-  def show
-  end
+  layout "layout_group", only: [:new]
 
   def new
     @content = Content.new
@@ -22,10 +18,10 @@ class ContentsController < ApplicationController
 
   def create
    @content = current_user.contents.create(content_params)
-   @content = group_id.contents.create(group_id)
+   @content.group_id = @group.id
   if @content.save
    flash[:success] = "Content was successfully created"
-   redirect_to contents_path
+   redirect_to @group
   else
    render 'new'
   end
@@ -34,7 +30,7 @@ class ContentsController < ApplicationController
   def update
   if @content.update(content_params)
    flash[:success] = "Content was updated"
-   redirect_to contents_path
+   redirect_to @group
   else
    flash[:success] = "Content was not updated"
    render 'edit'
@@ -44,17 +40,21 @@ end
   def destroy
   @content.destroy
   flash[:success] = "Contetn was deleted"
-  redirect_to contents_path
+  redirect_to @group
   end
 
   private
 
-    def content_params
-       params.require(:content).permit(:title, :description, :level, :startDate, :endDate , :user_id, :group_id)
-    end
-
     def set_content
       @content = Content.find(params[:id])
+    end
+
+    def set_group
+      @group = Group.find(params[:group_id])
+    end
+
+    def content_params
+       params.require(:content).permit(:title, :description, :level, :startDate, :endDate)
     end
 
 end

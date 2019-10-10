@@ -14,12 +14,13 @@
 //= require popper
 //= require bootstrap
 //= require rails-ujs
-//= require turbolinks
 //= require ckeditor/config
+//= require turbolinks
+//= require rails.validations
 //= require_tree.
 
 
-$(document).on('turbolinks:load',function() {
+$(document).ready(function() {
   var showChar = 100;
   var ellipsestext = "...";
   var moretext = "more";
