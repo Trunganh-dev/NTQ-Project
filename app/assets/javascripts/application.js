@@ -22,6 +22,14 @@
 
 
 $(document).ready(function() {
+  $(".js-example-tags").select2({
+      tags: true
+      });
+});
+
+
+
+$(document).ready(function() {
   var showChar = 100;
   var ellipsestext = "...";
   var moretext = "more";
