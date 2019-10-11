@@ -25,8 +25,24 @@ $(document).ready(function() {
   $(".js-example-tags").select2({
       tags: true
       });
-});
 
+  $('.add').keyup(function(){
+      let email = $('.add').val();
+      console.log(email);
+      $.ajax({
+        url: '/ajax/getemail',
+        type: 'GET',
+        data: {
+          email: email
+        },
+
+      }).done(function(reponse) {
+        $('#getemail').html(
+
+        );
+      })
+  });
+});
 
 
 $(document).ready(function() {
