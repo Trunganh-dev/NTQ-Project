@@ -1,8 +1,8 @@
 class MembersController < ApplicationController
     layout "layout_group"
+    before_action :group
 
     def index
-        @group = Group.find_by(params[:group_id])
         @members = @group.users.includes(:roles).where("roles.roles = ?", "3").where("roles.status = ?", "1")
         @mentor  = @group.users.includes(:roles).where("roles.roles = ?", "2").where("roles.status = ?", "1")
         @captain = @group.users.includes(:roles).where("roles.roles = ?", "1").where("roles.status = ?", "1")
@@ -13,7 +13,7 @@ class MembersController < ApplicationController
 
     def create
         @user = User.find_by(email: params[:member][:email])
-        @user_in_group = User.groups.find_by(group_id: parmams[:member][:group_id])
+        @user_in_group = @user.roles.where(group_id: params[:group_id]) if !@user.blank?
         if @user
             if @user_in_group == []
                 @role = Role.new(role_params)
@@ -22,19 +22,23 @@ class MembersController < ApplicationController
                 @role.status = 1
                 @role.save
                 flash[:success] = "Add member success" 
-                redirect_to root_path  
+                redirect_to group_members_path(@group) 
             else
                 flash[:danger] = "Thành viên đã có trong group"
-                redirect_to root_path   
+                redirect_to group_members_path(@group)   
             end
         else
             flash[:danger] = "Email not exist in system"
-            redirect_to root_path
+            redirect_to group_members_path(@group) 
         end
     end
 
     private
     def role_params
       params.require(:member).permit :group_id
+    end
+
+    def group
+        @group = Group.find_by(params[:group_id])
     end
 end
