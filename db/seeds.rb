@@ -7,31 +7,31 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# courses = Course.create([
-#   {
-#     name:'testcoures',
-#     slug:'testcoures',
-#     thumbnail:'testcoures',
-#   }
-# ])
+courses = Course.create([
+  {
+    name:'testcoures',
+    slug:'testcoures',
+    thumbnail:'testcoures',
+  }
+])
 
-# groups = Group.create([
-#   {
-#     name:'testgroup',
-#     slug:'testgroup',
-#     decription:'testgroup',
-#     thumbnail:'testgroup',
-#     startdate:'21/09/2019',
-#     course_id: '1',
-#   }
-# ])
+groups = Group.create([
+  {
+    name:'testgroup',
+    slug:'testgroup',
+    decription:'testgroup',
+    thumbnail:'testgroup',
+    startdate:'21/09/2019',
+    course_id: '1',
+  }
+])
 
 user  = User.create([
   {
-    email:'nam@ntq-solution.com.vn',
+    email:'abc@ntq-solution.com.vn',
     encrypted_password:'trunganh1514',
-    provider:'id11314ssadad',
-    uid:'123312',
+    provider:'id11314',
+    uid:'1',
     pictures:'14abc',
     givenname:'trung',
     fullname:'trunganh',

@@ -6,7 +6,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         sign_in_and_redirect @user, :event => :authentication
       else
         session["devise.google_data"] = request.env["omniauth.auth"].except("extra")
-        flash[:danger] = "Email của bạn không được phép đăng nhập vào hệ thống "
+        flash[:danger] = "Email Không hợp lệ :P"
         redirect_to root_path
       end
   end

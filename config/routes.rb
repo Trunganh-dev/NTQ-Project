@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'ajax/getemail'
   get 'home/content'
   get "content/edit" => 'content#edit', :as => :edit
   root 'home#index'
@@ -13,8 +12,8 @@ Rails.application.routes.draw do
   resources :attendances
   resources :groups do
     resources :contents, except: [:show, :index]
-    resources :members
   end
   resources :courses
+  resources :members
   resources :details
 end
