@@ -1,7 +1,8 @@
 class AjaxController < ApplicationController
   def getemail
-    # binding.pry
-    @pa = params[:email][:email]
-    @email = User.where("name LIKE ?", "#{params[:email]}%")
+    @email = User.where("email LIKE ?", "%#{params[:email]}%")
+    binding.pry
+    return @email
+   
   end
 end
