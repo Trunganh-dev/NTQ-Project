@@ -58,7 +58,6 @@
                   <%= image_tag("ava.jpeg", alt: "Cover",id:"cover-header") %>
                 </div>
                 <div class="lean">
-                    <h2><%= @group.name %></h4>
                     <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Joined
                         <span class="caret"></span></button>
@@ -75,7 +74,7 @@
                             <%= link_to 'contents', group_path(@group) %>
                         </li>
                         <li>
-                            <%= link_to  "Member", group_members_path(@group) %>
+                            <a href="#">Member</a>
                         </li>
                         <li>
                             <a href="#">Attendance</a>

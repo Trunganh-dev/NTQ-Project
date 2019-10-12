@@ -5,14 +5,14 @@
       <div class="col-sm-6 col-lg-8 main-mid">
         <div class="box-main">
 
-          <% if  @role_current_user == [] %>
+          <% if  @role_current_user.nil? %>
           <!-- captian -->
           <% @captain.each do |captain| %>
           <div class="left-member">
             <img src="<%= captain.pictures %>" alt="" id="ava-member">
           </div>
           <div class="right-member">
-            <p class="text-warning"> <%= captain.fullname %><span class="glyphicon glyphicon-star" aria-hidden="true"></span></p>
+            <p> <%= captain.fullname %><span class="glyphicon glyphicon-star" aria-hidden="true"></span></p>
             <p>Joined date: 3/10/2019</p>
             <p>Gmail: <%= captain.email %></p>
             <p>Skype: 11122425</p>
@@ -110,7 +110,7 @@
             <img src="<%= mentor.pictures %>" alt="" id="ava-member">
           </div>
           <div class="right-member">
-            <p id="name-mamber" class="text-warning"> <%= mentor.fullname %><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            <p id="name-mamber"> <%= mentor.fullname %><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
             </p>
             <p>Joined date: 11/02/1971</p>
             <p>Gmail: <%= mentor.email %></p>
@@ -158,18 +158,18 @@
                       <div class="nav-profile" style="margin-left: 12px;">
 
                         <ul class="nav nav-tabs">
-                          <li class="active"><a data-toggle="tab" href="#home<%= mentor.id %>">About</a></li>
-                          <li><a data-toggle="tab" href="#menu<%= mentor.id %>">History</a></li>
+                          <li class="active"><a data-toggle="tab" href="#home">About</a></li>
+                          <li><a data-toggle="tab" href="#menu3">History</a></li>
                         </ul>
 
                       </div>
                       <div class="tab-content" style="padding-left: 12px;">
-                        <div id="home<%= mentor.id %>" class="tab-pane fade in active">
+                        <div id="home" class="tab-pane fade in active">
                           <h3>About</h3>
                           <p>I hate Béo!!!</p>
                         </div>
 
-                        <div id="menu<%= mentor.id %>" class="tab-pane fade">
+                        <div id="menu3" class="tab-pane fade">
                           <table class="table table-hover">
                             <thead>
                               <tr>
@@ -211,15 +211,15 @@
             <img src="<%= member.pictures %>" alt="" id="ava-member">
           </div>
           <div class="right-member">
-            <p id="name-mamber"><%= member.fullname %>
+            <p id="name-mamber"><%= member.fullname %><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
             </p>
             <p>Joined date: 11/02/1971</p>
             <p>Gmail: <%= member.email %></p>
             <p>Skype: 45623253</p>
-    
+          </div>
           <!-- Modal -->
           <button class="btn btn-primary" data-target="#myModal-<%= member.id %>" data-toggle="modal" type="button">
-            Detail
+            Launch
           </button>
           <div aria-labelledby="myModalLabel" class="modal fade" id="myModal-<%= member.id %>" role="dialog" tabindex="-1">
             <div class="modal-dialog" role="document">
@@ -259,18 +259,18 @@
                       <div class="nav-profile" style="margin-left: 12px;">
 
                         <ul class="nav nav-tabs">
-                          <li class="active"><a data-toggle="tab" href="#home<%= member.id %>">About</a></li>
-                          <li><a data-toggle="tab" href="#menu<%= member.id %>">History</a></li>
+                          <li class="active"><a data-toggle="tab" href="#home">About</a></li>
+                          <li><a data-toggle="tab" href="#menu3">History</a></li>
                         </ul>
 
                       </div>
                       <div class="tab-content" style="padding-left: 12px;">
-                        <div id="home<%= member.id %>" class="tab-pane fade in active">
+                        <div id="home" class="tab-pane fade in active">
                           <h3>About</h3>
                           <p> Béo manh me!!!</p>
                         </div>
 
-                        <div id="menu<%= member.id %>" class="tab-pane fade">
+                        <div id="menu3" class="tab-pane fade">
                           <table class="table table-hover">
                             <thead>
                               <tr>
@@ -301,7 +301,6 @@
               </div>
             </div>
           </div>
-          </div>
           <!-- end Modal -->
           <% end %>
           <!-- end members -->
@@ -313,7 +312,7 @@
             <img src="<%= captain.pictures %>" alt="" id="ava-member">
           </div>
           <div class="right-member">
-            <p class="text-warning" > <%= captain.fullname %><span class="glyphicon glyphicon-star" aria-hidden="true"></span></p>
+            <p> <%= captain.fullname %><span class="glyphicon glyphicon-star" aria-hidden="true"></span></p>
             <p>Gmail: <%= captain.email %></p>
             <p>Skype: </p>
             <p>Joined date: 3/10/2019</p>
@@ -359,18 +358,18 @@
                         <div class="nav-profile" style="margin-left: 12px;">
 
                         <ul class="nav nav-tabs">
-                          <li class="active"><a data-toggle="tab" href="#home<%= captain.id %>">About</a></li>
-                          <li><a data-toggle="tab" href="#menu<%= captain.id %>">History</a></li>
+                          <li class="active"><a data-toggle="tab" href="#home">About</a></li>
+                          <li><a data-toggle="tab" href="#menu3">History</a></li>
                         </ul>
 
                       </div>
                       <div class="tab-content" style="padding-left: 12px;">
-                        <div id="home<%= captain.id %>" class="tab-pane fade in active">
+                        <div id="home" class="tab-pane fade in active">
                           <h3>About</h3>
                           <p> Béo dang yeu!!!</p>
                         </div>
 
-                        <div id="menu<%= captain.id %>" class="tab-pane fade">
+                        <div id="menu3" class="tab-pane fade">
                           <table class="table table-hover">
                             <thead>
                               <tr>
@@ -412,7 +411,7 @@
             <img src="<%= mentor.pictures %>" alt="" id="ava-member">
           </div>
           <div class="right-member">
-            <p id="name-mamber" class="text-warning"><%= mentor.fullname %> <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            <p id="name-mamber"><%= mentor.fullname %> <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
             </p>
             <p>Joined date: 11/02/1971</p>
             <p>Gmail: <%= mentor.email %></p>
@@ -467,18 +466,18 @@
                        <div class="nav-profile" style="margin-left: 12px;">
 
                         <ul class="nav nav-tabs">
-                          <li class="active"><a data-toggle="tab" href="#home<%= mentor.id %>">About</a></li>
-                          <li><a data-toggle="tab" href="#menu<%= mentor.id %>">History</a></li>
+                          <li class="active"><a data-toggle="tab" href="#home">About</a></li>
+                          <li><a data-toggle="tab" href="#menu3">History</a></li>
                         </ul>
 
                       </div>
                       <div class="tab-content" style="padding-left: 12px;">
-                        <div id="home<%= mentor.id %>" class="tab-pane fade in active">
+                        <div id="home" class="tab-pane fade in active">
                           <h3>About</h3>
                           <p>I yeu Béo!!!</p>
                         </div>
 
-                        <div id="menu<%= mentor.id %>" class="tab-pane fade">
+                        <div id="menu3" class="tab-pane fade">
                           <table class="table table-hover">
                             <thead>
                               <tr>
@@ -574,18 +573,18 @@
                         <div class="nav-profile" style="margin-left: 12px;">
 
                         <ul class="nav nav-tabs">
-                          <li class="active"><a data-toggle="tab" href="#home<%= member.id %>">About</a></li>
-                          <li><a data-toggle="tab" href="#menu<%= member.id %>">History</a></li>
+                          <li class="active"><a data-toggle="tab" href="#home">About</a></li>
+                          <li><a data-toggle="tab" href="#menu3">History</a></li>
                         </ul>
 
                       </div>
                       <div class="tab-content" style="padding-left: 12px;">
-                        <div id="home<%= member.id %>" class="tab-pane fade in active">
+                        <div id="home" class="tab-pane fade in active">
                           <h3>About</h3>
                           <p>I love Béo!!!</p>
                         </div>
 
-                        <div id="menu<%= member.id %>" class="tab-pane fade">
+                        <div id="menu3" class="tab-pane fade">
                           <table class="table table-hover">
                             <thead>
                               <tr>
@@ -619,14 +618,15 @@
             <!-- end Modal -->
           </div>
           <% end %>
-          <!-- end members -->  
+          <!-- end members -->
           <% end %>
         </div>
       </div>
 
       <div class="col-sm-3 col-lg-4 main-right">
         <div class="form">
-          <%= form_for(:member, url: group_members_path) do |f| %>
+
+          <%= form_for(:member, url: members_path) do |f| %>
           <%= f.text_field :email,class: "add",:required => true,placeholder: "Add member this class..." %>
           <%= f.submit "add", class: "add-submit" %>
           <% end %>
@@ -731,4 +731,3 @@
   </div>
 </div>
 <!-- end main -->
-
