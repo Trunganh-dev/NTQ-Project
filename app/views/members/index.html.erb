@@ -5,15 +5,15 @@
       <div class="col-sm-6 col-lg-8 main-mid">
         <div class="box-main">
 
-          <% if  @role_current_user.nil? %>
+          <% if  @role_current_user == [] || @role_current_user.nil? %>
           <!-- captian -->
           <% @captain.each do |captain| %>
           <div class="left-member">
-            <img src="<%= captain.pictures %>" alt="" id="ava-member">
+            <img src="<%= captain.user.pictures %>" alt="" id="ava-member">
           </div>
           <div class="right-member">
-            <p> <%= captain.fullname %><span class="glyphicon glyphicon-star" aria-hidden="true"></span></p>
-            <p>Joined date: 3/10/2019</p>
+            <p> <%= captain.user.fullname %><span class="glyphicon glyphicon-star" aria-hidden="true"></span></p>
+            <p>Joined date: <%= captain.created_at %></p>
             <p>Gmail: <%= captain.email %></p>
             <p>Skype: 11122425</p>
             <!-- Modal -->
@@ -40,13 +40,13 @@
                       </div>
                       <div class="top-detail-right">
                         <p>
-                          <%= captain.fullname %>
+                          <%= captain.user.fullname %>
                         </p>
                         <p>
-                          Joined date: 3/10/2019
+                          Joined date:  <%= captain.created_at %>
                         </p>
                         <p>
-                          Gmail: <%= captain.email %>
+                          Gmail: <%= captain.user.email %>
                         </p>
                         <p>
                           Skype: 11122425
@@ -58,17 +58,17 @@
 
                         <ul class="nav nav-tabs">
                           <li class="active"><a data-toggle="tab" href="#home">About</a></li>
-                          <li><a data-toggle="tab" href="#menu3">History</a></li>
+                          <li><a data-toggle="tab" href="#menu3222">History</a></li>
                         </ul>
 
                       </div>
                       <div class="tab-content" style="padding-left: 12px;">
                         <div id="home" class="tab-pane fade in active">
                           <h3>About</h3>
-                          <p>I hate Béo!!!</p>
+                          <p>I love Béo!!! ahihi</p>
                         </div>
 
-                        <div id="menu3" class="tab-pane fade">
+                        <div id="menu3222" class="tab-pane fade">
                           <table class="table table-hover">
                             <thead>
                               <tr>
@@ -78,11 +78,11 @@
                             </thead>
                             <tbody>
                               <tr>
-                                <td>3/10/2019</td>
-                                <td>PHP 01</td>
+                                <td> <%= captain.created_at %> </td>
+                                <td> <%= captain.group.name %></td>
                               </tr>
                               <tr>
-                                <td>4/10/2019e</td>
+                                <td>2019-10-14 05:52:54 UTC</td>
                                 <td>Ruby 03</td>
                               </tr>
                             </tbody>
@@ -107,13 +107,13 @@
           <!-- mentor -->
           <% @mentor.each do |mentor| %>
           <div class="left-member">
-            <img src="<%= mentor.pictures %>" alt="" id="ava-member">
+            <img src="<%= mentor.user.pictures %>" alt="" id="ava-member">
           </div>
           <div class="right-member">
-            <p id="name-mamber"> <%= mentor.fullname %><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            <p id="name-mamber"> <%= mentor.user.fullname %><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
             </p>
-            <p>Joined date: 11/02/1971</p>
-            <p>Gmail: <%= mentor.email %></p>
+            <p>Joined date: <%= mentor.created_at %></p>
+            <p>Gmail: <%= mentor.user.email %></p>
             <p>Skype: 13348882</p>
             <!-- Modal -->
             <button class="btn btn-primary" data-target="#myModal-<%= mentor.id%>" data-toggle="modal" type="button">
@@ -139,13 +139,13 @@
                       </div>
                       <div class="top-detail-right">
                         <p>
-                           <%= mentor.fullname %>
+                           <%= mentor.user.fullname %>
                         </p>
                         <p>
-                          Joined date: 3/10/2019
+                          Joined date: <%= mentor.created_at %>
                         </p>
                         <p>
-                          Gmail: <%= mentor.email %>
+                          Gmail: <%= mentor.user.email %>
                         </p>
                         <p>
                           Skype: 11122425
@@ -158,18 +158,18 @@
                       <div class="nav-profile" style="margin-left: 12px;">
 
                         <ul class="nav nav-tabs">
-                          <li class="active"><a data-toggle="tab" href="#home">About</a></li>
-                          <li><a data-toggle="tab" href="#menu3">History</a></li>
+                          <li class="active"><a data-toggle="tab" href="#home<%= mentor.id%>">About</a></li>
+                          <li><a data-toggle="tab" href="#menu<%= mentor.id%>">History</a></li>
                         </ul>
 
                       </div>
                       <div class="tab-content" style="padding-left: 12px;">
-                        <div id="home" class="tab-pane fade in active">
+                        <div id="home<%= mentor.id%>" class="tab-pane fade in active">
                           <h3>About</h3>
-                          <p>I hate Béo!!!</p>
+                          <p>toi la <%= mentor.user.fullname %></p>
                         </div>
 
-                        <div id="menu3" class="tab-pane fade">
+                        <div id="menu3<%= mentor.id%>" class="tab-pane fade">
                           <table class="table table-hover">
                             <thead>
                               <tr>
@@ -179,13 +179,14 @@
                             </thead>
                             <tbody>
                               <tr>
-                                <td>3/10/2019</td>
-                                <td>PHP 01</td>
+                                <td><%= mentor.created_at %></td>
+                                <td><%= mentor.group.name %></td>
                               </tr>
                               <tr>
-                                <td>4/10/2019e</td>
-                                <td>Ruby 03</td>
+                                <td>2019-10-14 02:52:54 UTC</td>
+                                <td>PHP 02</td>
                               </tr>
+                              
                             </tbody>
                           </table>
                         </div>
@@ -208,18 +209,17 @@
           <!-- members -->
           <% @members.each do |member| %>
           <div class="left-member">
-            <img src="<%= member.pictures %>" alt="" id="ava-member">
+            <img src="<%= member.user.pictures %>" alt="" id="ava-member">
           </div>
           <div class="right-member">
-            <p id="name-mamber"><%= member.fullname %><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            <p id="name-mamber"><%= member.user.fullname %><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
             </p>
-            <p>Joined date: 11/02/1971</p>
-            <p>Gmail: <%= member.email %></p>
+            <p>Joined date: <%= member.created_at %></p>
+            <p>Gmail: <%= member.user.email %></p>
             <p>Skype: 45623253</p>
-          </div>
           <!-- Modal -->
           <button class="btn btn-primary" data-target="#myModal-<%= member.id %>" data-toggle="modal" type="button">
-            Launch
+            Detail
           </button>
           <div aria-labelledby="myModalLabel" class="modal fade" id="myModal-<%= member.id %>" role="dialog" tabindex="-1">
             <div class="modal-dialog" role="document">
@@ -301,6 +301,7 @@
               </div>
             </div>
           </div>
+          </div>
           <!-- end Modal -->
           <% end %>
           <!-- end members -->
@@ -309,13 +310,14 @@
           <!-- captian -->
           <% @captain.each do |captain| %>
           <div class="left-member">
-            <img src="<%= captain.pictures %>" alt="" id="ava-member">
+            <img src="<%= captain.user.pictures %>" alt="" id="ava-member">
           </div>
           <div class="right-member">
-            <p> <%= captain.fullname %><span class="glyphicon glyphicon-star" aria-hidden="true"></span></p>
-            <p>Gmail: <%= captain.email %></p>
-            <p>Skype: </p>
-            <p>Joined date: 3/10/2019</p>
+            <p> <%= captain.user.fullname %><span class="glyphicon glyphicon-star" aria-hidden="true"></span></p>
+            <p>Joined date: <%= captain.created_at %></p>
+            <p>Gmail: <%= captain.user.email %></p>
+            <p>Skype: 135633666</p>
+            
             <!-- Modal -->
             <button class="btn btn-primary" data-target="#myModal-<%= captain.id %>" data-toggle="modal" type="button">
               detail
@@ -336,17 +338,17 @@
                   <div class="modal-body">
                     <div class="top-detail">
                       <div class="top-detail-left">
-                        <img alt="" id="ava-member" src="<%= captain.pictures %>">
+                        <img alt="" id="ava-member" src="<%= captain.user.pictures %>">
                       </div>
                       <div class="top-detail-right">
                         <p>
-                          <%= captain.fullname %>
+                          <%= captain.user.fullname %>
                         </p>
                         <p>
-                          Joined date: 3/10/2019
+                          Joined date: <%= captain.created_at %>
                         </p>
                         <p>
-                          Gmail: <%= captain.email %>
+                          Gmail: <%= captain.user.email %>
                         </p>
                         <p>
                           Skype: 11122425
@@ -358,18 +360,18 @@
                         <div class="nav-profile" style="margin-left: 12px;">
 
                         <ul class="nav nav-tabs">
-                          <li class="active"><a data-toggle="tab" href="#home">About</a></li>
-                          <li><a data-toggle="tab" href="#menu3">History</a></li>
+                          <li class="active"><a data-toggle="tab" href="#home<%= captain.id %>">About</a></li>
+                          <li><a data-toggle="tab" href="#menu3<%= captain.id %>">History</a></li>
                         </ul>
 
                       </div>
                       <div class="tab-content" style="padding-left: 12px;">
-                        <div id="home" class="tab-pane fade in active">
+                        <div id="home<%= captain.id %>" class="tab-pane fade in active">
                           <h3>About</h3>
-                          <p> Béo dang yeu!!!</p>
+                          <p> Béo dang yeu!!! toi la <%= captain.user.fullname %></p>
                         </div>
 
-                        <div id="menu3" class="tab-pane fade">
+                        <div id="menu3<%= captain.id %>" class="tab-pane fade">
                           <table class="table table-hover">
                             <thead>
                               <tr>
@@ -379,11 +381,11 @@
                             </thead>
                             <tbody>
                               <tr>
-                                <td>3/10/2019</td>
-                                <td>PHP 01</td>
+                                <td><%= captain.created_at %></td>
+                                <td><%= captain.group.name %></td>
                               </tr>
                               <tr>
-                                <td>4/10/2019e</td>
+                                <td>2019-10-14 02:52:54 UTC</td>
                                 <td>Ruby 03</td>
                               </tr>
                             </tbody>
@@ -408,13 +410,13 @@
           <!-- mentor -->
           <% @mentor.each do |mentor| %>
           <div class="left-member">
-            <img src="<%= mentor.pictures %>" alt="" id="ava-member">
+            <img src="<%= mentor.user.pictures %>" alt="" id="ava-member">
           </div>
           <div class="right-member">
-            <p id="name-mamber"><%= mentor.fullname %> <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            <p id="name-mamber"><%= mentor.user.fullname %> <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
             </p>
-            <p>Joined date: 11/02/1971</p>
-            <p>Gmail: <%= mentor.email %></p>
+            <p>Joined date: <%= mentor.created_at %></p>
+            <p>Gmail: <%= mentor.user.email %></p>
             <p>Skype: 33002625</p>
             <div class="drop">
               <a href="" class="dropdown-toggle" data-toggle="dropdown">...
@@ -444,17 +446,17 @@
                   <div class="modal-body">
                     <div class="top-detail">
                       <div class="top-detail-left">
-                        <img alt="" id="ava-member" src="<%= mentor.pictures %>">
+                        <img alt="" id="ava-member" src="<%= mentor.user.pictures %>">
                       </div>
                       <div class="top-detail-right">
                         <p>
-                          <%= mentor.fullname %>
+                          <%= mentor.user.fullname %>
                         </p>
                         <p>
-                          Joined date: 3/10/2019
+                          Joined date: <%= mentor.created_at %>
                         </p>
                         <p>
-                          Gmail: <%= mentor.email %>
+                          Gmail: <%= mentor.user.email %>
                         </p>
                         <p>
                           Skype: 11122425
@@ -466,18 +468,18 @@
                        <div class="nav-profile" style="margin-left: 12px;">
 
                         <ul class="nav nav-tabs">
-                          <li class="active"><a data-toggle="tab" href="#home">About</a></li>
-                          <li><a data-toggle="tab" href="#menu3">History</a></li>
+                          <li class="active"><a data-toggle="tab" href="#home<%= mentor.id %>">About</a></li>
+                          <li><a data-toggle="tab" href="#menu3<%= mentor.id %>">History</a></li>
                         </ul>
 
                       </div>
                       <div class="tab-content" style="padding-left: 12px;">
-                        <div id="home" class="tab-pane fade in active">
+                        <div id="home<%= mentor.id %>" class="tab-pane fade in active">
                           <h3>About</h3>
-                          <p>I yeu Béo!!!</p>
+                          <p>I yeu Béo!!! toi la <%= mentor.user.fullname %></p>
                         </div>
 
-                        <div id="menu3" class="tab-pane fade">
+                        <div id="menu3<%= mentor.id %>" class="tab-pane fade">
                           <table class="table table-hover">
                             <thead>
                               <tr>
@@ -487,12 +489,16 @@
                             </thead>
                             <tbody>
                               <tr>
-                                <td>3/10/2019</td>
-                                <td>PHP 01</td>
+                                <td><%= mentor.created_at %></td>
+                                <td><%= mentor.group.name %></td>
                               </tr>
                               <tr>
-                                <td>4/10/2019e</td>
+                                <td>2019-10-14 02:52:54 UTC</td>
                                 <td>Ruby 03</td>
+                              </tr>
+                               <tr>
+                                <td>2019-10-14 03:52:54 UTC</td>
+                                <td>Ruby 04</td>
                               </tr>
                             </tbody>
                           </table>
@@ -516,18 +522,18 @@
           <!-- members -->
           <% @members.each do |member| %>
           <div class="left-member">
-            <img src="<%= member.pictures %>" alt="" id="ava-member">
+            <img src="<%= member.user.pictures %>" alt="" id="ava-member">
           </div>
           <div class="right-member">
-            <p id="name-mamber"><%= member.fullname %></p>
-            <p>Joined date: 11/02/1971</p>
-            <p>Gmail: <%= member.email %></p>
-            <p>Skype: </p>
+            <p id="name-mamber"><%= member.user.fullname %></p>
+            <p>Joined date: <%= member.created_at %></p>
+            <p>Gmail: <%= member.user.email %></p>
+            <p>Skype: 11232323</p>
             <div class="drop">
               <a href="" class="dropdown-toggle" data-toggle="dropdown">...
                 <ul class="dropdown-menu">
                   <li><a href="#">Remove</a></li>
-                  <li><a href="#">Remove Mentor</a></li>
+                  <li><a href="#">Set Mentor</a></li>
                   <li><a href="#">set Captain</a></li>
                 </ul>
             </div>
@@ -551,17 +557,17 @@
                   <div class="modal-body">
                     <div class="top-detail">
                       <div class="top-detail-left">
-                        <img alt="" id="ava-member" src="<%= member.pictures %>">
+                        <img alt="" id="ava-member" src="<%= member.user.pictures %>">
                       </div>
                       <div class="top-detail-right">
                         <p>
-                          <%= member.fullname %>
+                          <%= member.user.fullname %>
                         </p>
                         <p>
-                          Joined date: 3/10/2019
+                          Joined date: <%= member.created_at %>
                         </p>
                         <p>
-                          Gmail:<%= member.email %>
+                          Gmail:<%= member.user.email %>
                         </p>
                         <p>
                           Skype: 11122425
@@ -573,18 +579,18 @@
                         <div class="nav-profile" style="margin-left: 12px;">
 
                         <ul class="nav nav-tabs">
-                          <li class="active"><a data-toggle="tab" href="#home">About</a></li>
-                          <li><a data-toggle="tab" href="#menu3">History</a></li>
+                          <li class="active"><a data-toggle="tab" href="#home<%= member.id %>">About</a></li>
+                          <li><a data-toggle="tab" href="#menu3<%= member.id %>">History</a></li>
                         </ul>
 
                       </div>
                       <div class="tab-content" style="padding-left: 12px;">
-                        <div id="home" class="tab-pane fade in active">
+                        <div id="home<%= member.id %>" class="tab-pane fade in active">
                           <h3>About</h3>
-                          <p>I love Béo!!!</p>
+                          <p>I love Béo!!! <%= member.user.fullname %></p>
                         </div>
 
-                        <div id="menu3" class="tab-pane fade">
+                        <div id="menu3<%= member.id %>" class="tab-pane fade">
                           <table class="table table-hover">
                             <thead>
                               <tr>
@@ -594,11 +600,15 @@
                             </thead>
                             <tbody>
                               <tr>
-                                <td>3/10/2019</td>
-                                <td>PHP 01</td>
+                                <td><%= member.created_at %></td>
+                                <td><%= member.group.name %></td>
                               </tr>
                               <tr>
-                                <td>4/10/2019e</td>
+                                <td>2019-10-14 02:52:54 UTC</td>
+                                <td>PHP 02</td>
+                              </tr>
+                               <tr>
+                                <td>2019-10-14 02:52:54 UTC</td>
                                 <td>Ruby 03</td>
                               </tr>
                             </tbody>
@@ -626,11 +636,15 @@
       <div class="col-sm-3 col-lg-4 main-right">
         <div class="form">
 
-          <%= form_for(:member, url: members_path) do |f| %>
+          <%= form_for(:member, url: group_members_path) do |f| %>
           <%= f.text_field :email,class: "add",:required => true,placeholder: "Add member this class..." %>
-          <input type="hidden" name="member[group_id]" value="<%= @group.id %>">
           <%= f.submit "add", class: "add-submit" %>
           <% end %>
+        </div>
+        <div id="getemail">
+        <ul>
+          
+        </ul>
         </div>
         <div class="box-main">
           <h3 class="card-header" id="monthAndYear"></h3>

@@ -25,6 +25,29 @@ $(document).ready(function() {
   $(".js-example-tags").select2({
       tags: true
       });
+      function renderHtml(data) {
+        var html = data.map(function(user){
+            return '<li>' + user.email + '</li>';
+        });
+        html = '<ul>' + html.join('') + '</ul>';
+        return html;
+    }
+  $('.add').keyup(function(){
+      let email = $('.add').val();
+      console.log(email);
+      $.ajax({
+        url: '/ajax/getemail',
+        type: 'GET',
+        data: {
+          email: email
+        }
+      }).done(function(response) {
+        console.log(response);
+        // var html = renderHtml(response);
+        // console.log(response);
+        // $('#getemail').html(html);
+      });
+  });
 });
 
 
