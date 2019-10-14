@@ -59,13 +59,22 @@
                 </div>
                 <div class="lean">
                 <h2><%= @group.name %></h2>
+                    <% if user_joined_in_group? %>
                     <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Joined
                         <span class="caret"></span></button>
                         <ul class="dropdown-menu">
                           <li><a href="#">Leave Group</a></li>
                         </ul>
-                      </div>
+                    </div>
+                    <% elsif  user_pending_in_group? %>
+                        <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Pending
+                        </div>
+                    </div>
+                    <% else %>
+                       <button><a href="">+ Want to join</a></button>
+                    <% end %>
                 </div>
             </div>
             <div class="col-md-8">

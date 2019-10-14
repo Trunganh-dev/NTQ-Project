@@ -20,7 +20,7 @@
                     <div class="item-group">
                         <div class="form-item">
                             <div class="g-top">
-                                <%= link_to  comming.name, group_url(id: comming.id), class: "link_group" %>
+                                <%= link_to  comming.name, group_url(id: comming.id, group_id: gr.id), class: "link_group" %>
                             </div>
                             <hr>
                             <div class="g-mid">
@@ -60,7 +60,7 @@
                         <div class="item-group">
                             <div class="form-item">
                                 <div class="g-top">
-                                  <%= link_to  gr.name, group_url(id: gr.id), class: "link_group" %>
+                                  <%= link_to  gr.name, group_url(id: gr.id, group_id: gr.id), class: "link_group" %>
                                 </div>
                                 <hr>
                                 <div class="g-mid">

@@ -2,6 +2,7 @@ class ContentsController < ApplicationController
   before_action :set_content, only: [:show, :edit, :update, :destroy]
   before_action :set_group
   before_action :authenticate_user!
+  before_action :logged_in_user
 
   layout "layout_group", only: [:new]
 
@@ -55,6 +56,13 @@ end
 
     def content_params
        params.require(:content).permit(:title, :description, :level, :startDate, :endDate)
+    end
+
+    def logged_in_user
+      unless user_signed_in?
+          flash[:danger] = "Please Log In"
+          redirect_to root_path
+      end
     end
 
 end

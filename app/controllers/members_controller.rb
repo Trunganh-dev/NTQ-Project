@@ -7,7 +7,6 @@ class MembersController < ApplicationController
     @members = Role.where(roles: 3, status:1, group_id: params[:group_id])
     @mentor  = Role.where(roles: 2, status:1, group_id: params[:group_id])
     @captain = Role.where(roles: 1, status:1, group_id: params[:group_id])
-
   end
 
   def create
@@ -47,7 +46,7 @@ class MembersController < ApplicationController
   private
 
   def group
-    @group = Group.find_by(params[:group_id])
+    @group = Group.find_by(id: params[:group_id])
   end
 
   def role_current_user

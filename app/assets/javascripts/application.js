@@ -18,7 +18,7 @@
 //= require ckeditor/config
 //= require turbolinks
 //= require rails.validations
-//= require_tree.
+//= require_tree .
 
 
 $(document).ready(function() {

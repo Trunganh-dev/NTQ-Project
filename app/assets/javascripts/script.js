@@ -1,3 +1,4 @@
+$(document).ready(function() {
 let today = new Date();
 let currentMonth = today.getMonth();
 let currentYear = today.getFullYear();
@@ -79,3 +80,4 @@ function showCalendar(month, year) {
     }
 
 }
+});

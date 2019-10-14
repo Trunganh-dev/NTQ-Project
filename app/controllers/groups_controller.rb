@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   layout "layout_group", only: [:show]
   before_action :logged_in_user, only: [:create]
   before_action :authenticate_user!, except: [:index, :show]
-  
+
   def index
     @cours    = Course.find_by(id: params[:course_id])
     @running  = Group.running_by_course(params[:course_id])
@@ -13,7 +13,7 @@ class GroupsController < ApplicationController
   end
 
   def show
-      @group = Group.find(params[:id])
+      @group = Group.find_by(id: params[:id])
       @contents = Content.where(group_id: @group.id).order("endDate DESC").page(params[:page]).per(5)
   end
 
@@ -64,4 +64,5 @@ class GroupsController < ApplicationController
         redirect_to root_path
     end
   end
+
 end
