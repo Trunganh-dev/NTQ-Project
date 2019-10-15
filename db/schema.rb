@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20191010015007) do
     t.string "document"
     t.date "startDate"
     t.date "endDate"
+    t.string "status"
     t.boolean "isDone"
     t.boolean "isAppove"
     t.integer "user_id"

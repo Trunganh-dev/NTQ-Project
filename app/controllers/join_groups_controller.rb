@@ -7,9 +7,9 @@ class JoinGroupsController < ApplicationController
       @member = Role.new
       @member.user_id = params[:user_id]
       @member.group_id = params[:group_id]
-      @role.roles = 3
-      @role.status = 2
-      @role.save
+      @member.roles = 3
+      @member.status = 2
+      @member.save
       flash[:success] = "Add member to pending" 
       redirect_to group_path(@group) 
     end

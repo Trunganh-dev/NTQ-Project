@@ -14,7 +14,7 @@ class GroupsController < ApplicationController
 
   def show
       @group = Group.find_by(id: params[:id])
-      @contents = Content.where(group_id: @group.id).order("endDate DESC").page(params[:page]).per(5)
+      @contents = Content.where(group_id: @group.id,status: 1).order("endDate DESC").page(params[:page]).per(5)
   end
 
   def create

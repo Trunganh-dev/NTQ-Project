@@ -7,10 +7,12 @@ class RolesController < ApplicationController
     ActiveRecord::Base.transaction do
       if @captain_group.nil?
         @member_update.update_attributes(roles: 1)
+        flash[:success] = "Set Captain successfully"
         redirect_to group_members_path(@groups)
       else
       @captain_group.update_attributes(roles: 3)
       @member_update.update_attributes(roles: 1)
+      flash[:success] = "Set Captain successfully"
       redirect_to group_members_path(@groups)
       end
     end
@@ -22,10 +24,12 @@ class RolesController < ApplicationController
     ActiveRecord::Base.transaction do
       if @mentor_group.nil?
         @member_update.update_attributes(roles: 2)
+        flash[:success] = "Set Mentor successfully"
         redirect_to group_members_path(@group)
       else
       @mentor_group.update_attributes(roles: 3)
       @member_update.update_attributes(roles: 2)
+      flash[:success] = "Set Mentor successfully"
       redirect_to group_members_path(@group)
       end
     end
@@ -35,6 +39,7 @@ class RolesController < ApplicationController
     @mentor = Role.where(roles: 2, group_id: params[:group_id]).first
     ActiveRecord::Base.transaction do
       @mentor.update_attributes(roles: 3)
+      flash[:danger] = "Remove Captain successfully"
       redirect_to group_members_path(@group)
     end
   end
@@ -43,6 +48,7 @@ class RolesController < ApplicationController
     @member = Role.where(group_id: params[:group_id], user_id: params[:user_id] ).first  
     ActiveRecord::Base.transaction do
       @member.destroy
+      flash[:danger] = "Remove Member successfully"
       redirect_to group_members_path(@group)
     end
   end

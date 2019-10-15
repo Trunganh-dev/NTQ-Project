@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :groups do
     resources :contents, except: [:show, :index]
     resources :members
+    resources :pendings
   end
   resources :courses
   resources :details
