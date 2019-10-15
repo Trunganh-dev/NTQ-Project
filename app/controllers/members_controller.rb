@@ -13,8 +13,8 @@ class MembersController < ApplicationController
       @user = User.find_by(email: params[:member][:email])
       @user_in_group = @user.roles.where(group_id: params[:group_id]) if !@user.blank?
       if @user
-          if @user_in_group == []
-            if @role_current_user == [] || @role_current_user.nil?
+          if @user_in_group.blank?
+            if @role_current_user.blank? || @role_current_user.nil?
               @role = Role.new
               @role.group_id = params[:group_id]
               @role.user_id = @user.id

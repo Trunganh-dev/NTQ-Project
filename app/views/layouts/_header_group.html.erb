@@ -64,7 +64,7 @@
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Joined
                         <span class="caret"></span></button>
                         <ul class="dropdown-menu">
-                          <li><a href="#">Leave Group</a></li>
+                          <li><%= link_to  "Leave Group", leave_group_path(user_id: current_user.id, group_id: @group.id) %></li>
                         </ul>
                     </div>
                     <% elsif  user_pending_in_group? %>
@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     <% else %>
-                       <button><a href="">+ Want to join</a></button>
+                       <button><%= link_to  "+ Want To Join", join_group_path(user_id: current_user.id, group_id: @group.id) %></button>
                     <% end %>
                 </div>
             </div>

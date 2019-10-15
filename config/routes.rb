@@ -2,10 +2,13 @@ Rails.application.routes.draw do
 
   get 'home/content'
   get "content/edit" => 'content#edit', :as => :edit
-  get  '/set-captain',   to: 'roles#setCaptain',   as: "set_captain"
-  get  '/set-mentor',    to: 'roles#setMentor' ,    as: "set_mentor"
-  get  '/delete-mentor', to: 'roles#destroyMentor', as: "del_mentor"
-  get  '/delete-member', to: 'roles#destroyMember', as: "del_member"
+  get  '/set-captain',   to: 'roles#setCaptain',      as: "set_captain"
+  get  '/set-mentor',    to: 'roles#setMentor' ,      as: "set_mentor"
+  get  '/delete-mentor', to: 'roles#destroyMentor',   as: "del_mentor"
+  get  '/delete-member', to: 'roles#destroyMember',   as: "del_member"
+  get  '/join-group',    to: 'join_groups#joinGroup', as: "join_group"
+  get  '/leave-group',    to: 'join_groups#leaveGroup', as: "leave_group"
+
   root 'home#index'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
