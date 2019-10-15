@@ -32,6 +32,9 @@ class GroupsController < ApplicationController
         @role.status = 1
         @role.save
         flash[:success] = "Create new groups successfully"
+        redirect_to group_members_path(@group)   
+      else
+        flash[:danger] = "Create new groups fail. Name not UNIQUE"
         redirect_to root_path
       end
     else 
@@ -48,6 +51,9 @@ class GroupsController < ApplicationController
         @role.status = 1
         @role.save
         flash[:success] = "Create new groups successfully"
+        redirect_to group_members_path(@group)   
+      else
+        flash[:danger] = "Create new groups fail. Name not UNIQUE"
         redirect_to root_path
       end
     end

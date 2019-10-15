@@ -2,6 +2,7 @@ class MembersController < ApplicationController
   layout "layout_group"
   before_action :group
   before_action :role_current_user
+  before_action :logged_in_user?, only: :create
 
   def index
     @members = Role.where(roles: 3, status:1, group_id: params[:group_id])
@@ -51,6 +52,13 @@ class MembersController < ApplicationController
 
   def role_current_user
     @role_current_user = current_user.groups.where(id: params[:group_id]).includes(:roles).where("roles.roles = ?", "1")  if user_signed_in?
+  end
+
+  def logged_in_user?
+    unless user_signed_in?
+        flash[:danger] = "Please log in before add member "
+        redirect_to group_members_path(@group)   
+    end
   end
 
 end
