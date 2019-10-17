@@ -14,6 +14,7 @@ class GroupsController < ApplicationController
 
   def show
       @group = Group.find_by(id: params[:id])
+      @course = Course.find_by(id: @group.course_id)
       @contents = Content.where(group_id: @group.id,status: 1).order("endDate DESC").page(params[:page]).per(5)
   end
 
@@ -59,6 +60,9 @@ class GroupsController < ApplicationController
     end
   end
 
+  def update
+    binding.pry
+  end
   private
   def group_params
     params.require(:group).permit :name, :decription, :startdate

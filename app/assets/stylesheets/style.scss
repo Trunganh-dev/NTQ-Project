@@ -680,7 +680,7 @@ a:hover {
     padding-left: 40px;
   }
   hr {
-    width: 80%;
+    width: 100%;
   }
    .g-mid {
     width: 100%;
@@ -826,3 +826,34 @@ a:hover {
 
 
 // end modal
+
+// upload avatar
+.camera {
+  width: 26px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+}
+.camera:hover label {
+  color: #a88211;
+}
+.camera input[type=file] {
+  height: 0;
+  overflow: hidden;
+  width: 0;
+}
+.camera label {
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  font-size: 26px;
+  color: hsl(0, 0%, 100%);
+  margin: 0;
+}
+.camera input[type=file]::-webkit-file-upload-button {
+  visibility: hidden;
+}

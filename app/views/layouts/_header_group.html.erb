@@ -57,6 +57,12 @@
                 <div class="avatarGroup">
                   <%= image_tag("ava.jpeg", alt: "Cover",id:"cover-header") %>
                 </div>
+                <div class="camera">
+                    <%= form_for(@group, url: groups_path) do |f| %>
+                    <%= f.label :thumbnail, ".",class: "glyphicon glyphicon-camera", for: "avata" %>
+                    <%= f.file_field :thumbnail, id: "avata",class: "upload" %>
+                    <% end %>
+                </div>
                 <div class="lean">
                 <h2><%= @group.name %></h2>
                 <% if user_signed_in? %>
@@ -99,7 +105,7 @@
                             <%= link_to  "Pending items", group_pendings_path(@group) %>
                         </li>
                         <li>
-                            <a href="#">Settings</a>
+                            <%= link_to  "Setting", group_settings_path(@group) %>
                         </li>
                     </ul>
                 </div>

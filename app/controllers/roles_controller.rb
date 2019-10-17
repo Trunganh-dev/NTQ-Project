@@ -45,7 +45,7 @@ class RolesController < ApplicationController
   end
 
   def destroyMember
-    @member = Role.where(group_id: params[:group_id], user_id: params[:user_id] ).first  
+    @member = Role.where(group_id: params[:group_id], user_id: params[:user_id] ).first
     ActiveRecord::Base.transaction do
       @member.destroy
       flash[:danger] = "Remove Member successfully"
