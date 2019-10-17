@@ -8,6 +8,7 @@ class MembersController < ApplicationController
     @members = Role.where(roles: 3, status:1, group_id: params[:group_id])
     @mentor  = Role.where(roles: 2, status:1, group_id: params[:group_id])
     @captain = Role.where(roles: 1, status:1, group_id: params[:group_id])
+
   end
 
   def create
@@ -16,6 +17,7 @@ class MembersController < ApplicationController
       if @user
           if @user_in_group.blank?
             if @role_current_user.blank? || @role_current_user.nil?
+
               @role = Role.new
               @role.group_id = params[:group_id]
               @role.user_id = @user.id

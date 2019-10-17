@@ -39,12 +39,31 @@ $(document).ready(function() {
         type: 'GET',
         data: {
           email: email
-        },
-        success: function(data){
-          window.location.reload()
+
         }
-      })
+      }).done(function(response) {
+        console.log(response);
+        // var html = renderHtml(response);
+        // console.log(response);
+        // $('#getemail').html(html);
+      });
   });
+});
+
+
+
+$(document).ready(function() {
+  var showChar = 100;
+  var ellipsestext = "...";
+  var moretext = "more";
+  var lesstext = "less";
+  $('.more').each(function() {
+    var content = $(this).html();
+
+    if(content.length > showChar) {
+
+      var c = content.substr(0, showChar);
+      var h = content.substr(showChar-1, content.length - showChar);
 
 $('.upload').on('change', function(){
   $(this).parent().submit();
