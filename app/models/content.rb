@@ -5,8 +5,8 @@ validates :description, presence: true
 validates :startDate, presence: true
 validates :endDate, presence: true
 validates :level, presence: true
-#validate :valid_start_date
-#validate :valid_end_date
+validate :valid_start_date
+validate :valid_end_date
 
 belongs_to :user
 belongs_to :group

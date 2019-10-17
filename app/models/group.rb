@@ -1,5 +1,5 @@
 class Group < ApplicationRecord
-    validates :name,        presence: true, uniqueness: {case_sensitive: false}, length: { maximum: 64   }
+    validates :name,        presence: true, uniqueness: true, length: { maximum: 64   }
     validates :decription,  presence: true,  length: { maximum: 255  }
     validates :startdate, presence: true
 

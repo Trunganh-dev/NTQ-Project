@@ -55,10 +55,10 @@
                 <%= form_for(:group, url: groups_path, html: {class: "form-container"}) do |f| %>
                     <h1>Create new group</h1>
                     <%= f.label :name, "Your group name" %>
-                    <%= f.text_field :name, class: 'form-control',:required => true %>
+                    <%= f.text_field :name, class: 'form-control',:required => true, maxlength: "64" %>
 
                     <%= f.label :decription %>
-                    <%= f.text_field :decription, class: 'form-control',:required => true %>
+                    <%= f.text_field :decription, class: 'form-control',:required => true, maxlength: "255" %>
 
                     <%= f.label :startdate, "Start Date" %>
                     <%= f.date_field :startdate, class: 'form-control',:required => true %>

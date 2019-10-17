@@ -72,12 +72,12 @@ a:hover {
   }
   /* CSS header  */
   .header_bot {
-  	height: 550px;
+  	height: 464px;
       position: relative;
   }
 
   .cover-image img {
-    height: 550px;
+    height: 464px;
     width: 1304px;
     -webkit-filter: grayscale(1);    
     filter: grayscale(1); 
@@ -176,7 +176,7 @@ a:hover {
     .popup {
   	position: absolute;
   	height: 52px;
-    top: -279px;
+    top: -194px;
   	left: 519px;
   	line-height: 52px;
   	background-color: rgb(68, 119, 45);
@@ -603,7 +603,9 @@ a:hover {
     height: 51px;
     border-bottom: 1px solid #9090a3;
   }
-
+  .menugruop ul li a {
+    font-size: 19px;
+  }
   .avatarGroup {
     width: 160px;
     height: 160px;
@@ -678,7 +680,7 @@ a:hover {
     padding-left: 40px;
   }
   hr {
-    width: 80%;
+    width: 100%;
   }
    .g-mid {
     width: 100%;
@@ -736,14 +738,14 @@ a:hover {
   #main .row .box-main .right-member {
     margin-top: 15px;
     width: 250px;
-    height: 139px;
+    height: 126px;
     border: 1px solid rgb(211, 202, 202);
     float: left;
     position: relative;
   }
   #ava-member {
     width: 90px;
-    height: 139px;
+    height: 126px;
   }
   #main .row .box-main .right-member p {
     color: #30304e;
@@ -824,3 +826,34 @@ a:hover {
 
 
 // end modal
+
+// upload avatar
+.camera {
+  width: 26px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+}
+.camera:hover label {
+  color: #a88211;
+}
+.camera input[type=file] {
+  height: 0;
+  overflow: hidden;
+  width: 0;
+}
+.camera label {
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  font-size: 26px;
+  color: hsl(0, 0%, 100%);
+  margin: 0;
+}
+.camera input[type=file]::-webkit-file-upload-button {
+  visibility: hidden;
+}

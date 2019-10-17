@@ -13,12 +13,10 @@ gem "omniauth"
 gem "omniauth-google-oauth2"
 gem "figaro"
 gem 'validates_timeliness', '~> 5.0.0.alpha3'
-gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'pry-rails'
 gem 'client_side_validations'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

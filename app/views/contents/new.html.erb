@@ -1,6 +1,4 @@
-
 <% if user_signed_in? %>
-  <%=render 'shared/errors', obj: @content %>
     <div class="row">
       <div class=" col-sm-12 col-sm-offset-1">
         <ul class="nav nav-tabs">
@@ -19,6 +17,7 @@
       <div class="form-group">
         <div class="control-label col-sm-1">
         </div>
+        
         <div class="content-date">
           <div class="row">
             <div class="col-sm-4">
@@ -30,8 +29,10 @@
             </div>
           </div>
         </div>
+
         <div class="control-label col-sm-1">
         </div>
+
         <div class="row">
           <div class="col-sm-4">
             <%=f.date_field :startDate,class: "form-control", placeholder: "Start Date", required: true  %>

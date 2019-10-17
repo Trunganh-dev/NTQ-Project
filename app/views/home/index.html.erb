@@ -7,16 +7,10 @@
                     <div class="box-main">
                         <h2>Course</h2>
                         <ul>
-                                <% @course.each do |course| %>
-                                    <li class="course"><%= link_to  course.name, groups_url(course_id: course.id) %></li>
-                                <% end %>
-                                <div class = "paginate">
-                                     <%= paginate @course, theme: 'twitter-bootstrap-3' %>
-                                </div>
-
+                            <% @course.each do |course| %>
+                                <li class="course"><%= link_to  course.name, groups_url(course_id: course.id) %></li>
+                            <% end %>
                         </ul>
-
-
                     </div>
                 </div>
                 <div class="col-sm-3 col-lg-4 main-right">

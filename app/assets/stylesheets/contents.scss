@@ -8,6 +8,16 @@
  padding-bottom: 15px;
  width: 550px;
 }
+.content-date-join {
+  padding-top: 15px;
+ padding-bottom: 15px;
+}
+
+.content-img {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 127px;
+ }
 
 .content-body span {
   font-size: 15px;
@@ -16,18 +26,13 @@
 
 .content-email span {
   font-size: 15px;
-  color:#E0F8EC;
+  color:rgb(39, 155, 97);
+  width: 200px;
 }
 
 .content-body a {
   font-size: 15px;
-  color:#E0F8EC;
-
-}
-
-.content-title {
- font-weight: bold;
- font-size: 1.5em;
+  color:rgb(168, 26, 45);
 }
 .bt-create {
  padding-left: 205px;
@@ -50,6 +55,7 @@ padding-right:30px;
   position: absolute;
   top: 10px;
   left: 50px;
+  width: 200px;
 }
 .content-status{
 background-color: #fff;
@@ -85,40 +91,12 @@ color: darkgrey;
 width: 50px;
 }
 //* Show More *//
-a.morelink {
-  text-decoration: none;
-  outline: none;
+#section {
+  width: 500px;
+  height: 400px;
+  word-wrap: break-word;
 }
-.morecontent span {
+
+.moretext {
   display: none;
-}
-.menu-content-drop{
-  float: right;
-}
-a {
-  color: #white;
-}
-a:visited {
-  color: #white;
-}
-a.morelink {
-  text-decoration:none;
-  outline: none;
-}
-.morecontent span {
-  display: none;
-}
-.comment {
-  width: 400px;
-  background-color: #f0f0f0;
-  margin: 10px;
-}
-.content-create-sz{
-  font-size: 12px;
-  padding-left: 35px;
-  line-height: 25px;
-}
-.content-button{
-  padding-top: 30px;
-  padding-left: 20px;
 }
