@@ -13,6 +13,8 @@
 //= require jquery
 //= require popper
 //= require bootstrap
+//= require moment
+//= require fullcalendar
 //= require select2
 //= require rails-ujs
 //= require ckeditor/config
@@ -59,11 +61,3 @@ $(document).ready(function() {
       $(this).text("Read more")
     }
   });
-
-});
-
-
-
-
-
-

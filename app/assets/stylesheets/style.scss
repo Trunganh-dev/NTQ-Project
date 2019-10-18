@@ -79,8 +79,8 @@ a:hover {
   .cover-image img {
     height: 464px;
     width: 1304px;
-    -webkit-filter: grayscale(1);    
-    filter: grayscale(1); 
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
     -webkit-filter: brightness(0.5);
   }
 
@@ -796,7 +796,7 @@ a:hover {
 
   }
 
-// modal  
+// modal
 .modal-body {
   width: 100%;
   height: auto;
@@ -880,18 +880,18 @@ a:hover {
   .row .mt-2 {
     margin-top: 5px;
   }
-  
+
   .px-2 {
     padding: 0 10px;
   }
   .chx-attendance {
     width: 100%;
   }
-  
+
   .email-attendance {
     width: 100%;
   }
-  
+
   .avt-attendance {
     width: 80px;
     height: 80px;
@@ -899,15 +899,15 @@ a:hover {
   .my-2 {
     margin: 0 10px;
   }
-  
+
   .input-note {
     padding-top: 40px;
   }
-  
+
   .py-2 {
     padding: 0 15px;
   }
-  
+
   /*Attendance List*/
 .attendance-child {
   box-shadow: 5px 5px 20px;
@@ -929,3 +929,10 @@ a:hover {
 .list-at a {
   text-decoration: none;
 }
+
+.calendar {
+  margin-top: 57px;
+  margin-left: 163px;
+  margin-bottom: 75px;
+}
+

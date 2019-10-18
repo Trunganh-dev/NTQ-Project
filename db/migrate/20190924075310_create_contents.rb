@@ -8,7 +8,7 @@ class CreateContents < ActiveRecord::Migration[5.1]
       t.string     :document
       t.date       :startDate
       t.date       :endDate
-      t.string      :status
+      t.string     :status
       t.boolean    :isDone
       t.boolean    :isAppove
       t.references :user, foreign_key: true

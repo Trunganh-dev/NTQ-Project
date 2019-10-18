@@ -158,14 +158,14 @@
           <div class="row">
             <div class="content-body">
               <div class="col-xs-12 ">
-              
+
                   <% if content.description.length > 300 %>
                     <%= truncate( content.description, length: 300) %>
                     <%= link_to_function '...View all', "$(this).parent().html('#{escape_javascript  content.description}')" %>
                   <% else %>
                     <%=  content.description %>
                   <% end %>
-               
+
               </div>
             </div>
           </div>

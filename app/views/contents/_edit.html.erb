@@ -13,8 +13,7 @@
                   <%=f.text_field :title,class: "form-control", placeholder: "Title", autofocus: true, required: true  %>
                 </div>
                 <div class="col-sm-6">
-                  <%=select(:content, :level, [[ 'Beginner', 'Beginner'],[ 'intermediste', 'intermediste'],[ 'expert', 'expert']],{ include_blank: true },class: "form-control" )
-                  %>
+               <%= f.select :level, [[ 'Beginner', 'Beginner' ],[ 'intermediste', 'intermediste'],[ 'expert', 'expert']],{}, {class: "form-control"} %>
                 </div>
               </div>
             </div>
@@ -31,7 +30,7 @@
             <div class="date">
               <div class="row">
                 <div class="col-sm-12">
-                  <%=f.cktext_area :description,rows: 50, class: "form-control", placeholder: "Body of content", required: true  %>
+                  <%=f.cktext_area :description,rows: 10, class: "form-control", placeholder: "Body of content", required: true  %>
                 </div>
               </div>
             </div>

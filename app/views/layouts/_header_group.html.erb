@@ -105,9 +105,10 @@
                             <%= link_to  "Attendance",  group_attendances_path(@group) %>
                         </li>
                         <li>
-                            <a href="#">Calendar</a>
+                            <%= link_to  "Calendar",  events_url(group_id: @group.id) %>
                         </li>
                         <li>
+
                             <% if  user_is_captain? %>
                             <%= link_to  "Pending items", group_pendings_path(@group) %>
                              <% end %>
