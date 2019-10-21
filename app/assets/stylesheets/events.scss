@@ -1,0 +1,33 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.event-form-pading {
+padding-bottom:20px;
+}
+
+.event-detail {
+padding-left: 50px;
+font-size: 14px;
+font-family: arial;
+}
+
+.event-detail p {
+font-size: 17px;
+font-family: arial;
+padding-top: 30px;
+font-weight: bold;
+}
+
+.event-button {
+  padding-left: 220px;
+}
+
+.left-drop {
+  width:10%;
+  float: left;
+}
+
+.right-drop {
+  width:90%;
+  float: left;
+}

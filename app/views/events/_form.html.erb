@@ -1,0 +1,35 @@
+<%= form_for @event,remote:true do |f| %>
+<div class="row">
+  <div class="control-label col-sm-12">
+    <div class="event-form-pading">
+      <%= f.text_field :title, class:"form-control", placeholder: "Title" %>
+    </div>
+    <div class="event-form-pading">
+      <%=f.text_area :something,rows: 5, class: "form-control", placeholder: "Something about your event" %>
+    </div>
+    <div class="event-form-pading">
+      <%= f.text_field :document, class:"form-control", placeholder: "Document Link " %>
+    </div>
+    <div class="event-form-pading">
+      <%= f.text_field :speaker, class:"form-control", placeholder: "Speaker" %>
+    </div>
+    <div class="row">
+      <div class="control-label col-sm-6">
+        <div class="event-form-pading">
+        <%= f.date_field :startDate, class:"form-control"  %>
+        </div>
+      </div>
+      <div class="control-label col-sm-6">
+        <div class="event-form-pading">
+        <%= f.date_field :endDate, class:"form-control" %>
+        <%= f.select :duration, [[ '25 minutes', '25' ],[ '85 minutes', '85'],[ '145 minutes', '145']],{}, {class: "form-control"} %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="event-button">
+ <button type="button" class="btn btn-danger" data-dismiss="modal" >Cancel</button>
+  <%= f.submit "Add", class:"btn btn-primary" %>
+  </div>
+<% end %>

@@ -69,6 +69,10 @@ ActiveRecord::Schema.define(version: 20191015174320) do
     t.string "document"
     t.date "startDate"
     t.date "endDate"
+    t.string "duration"
+    t.string "color"
+    t.string "speaker"
+    t.string "something"
     t.integer "user_id"
     t.integer "group_id"
     t.datetime "created_at", null: false

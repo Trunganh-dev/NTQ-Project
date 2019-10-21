@@ -34,8 +34,8 @@ Rails.application.routes.draw do
     resources :attendances
     resources :pendings
     resources :settings,    only: [:index]
-
   end
+  resources :events
   resources :courses
   resources :details
 end

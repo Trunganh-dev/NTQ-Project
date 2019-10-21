@@ -17,15 +17,14 @@
       <div class="form-group">
         <div class="control-label col-sm-1">
         </div>
-        
+
         <div class="content-date">
           <div class="row">
             <div class="col-sm-4">
               <%=f.text_field :title,class: "form-control", placeholder: "Title", autofocus: true, required: true  %>
             </div>
             <div class="col-sm-4">
-              <%=select(:content, :level, [[ 'Beginner', 'Beginner'],[ 'intermediste', 'intermediste'],[ 'expert', 'expert']],{ include_blank: true },class: "form-control", required: true )
-              %>
+               <%= f.select :level, [[ 'Beginner', 'Beginner' ],[ 'intermediste', 'intermediste'],[ 'expert', 'expert']],{}, {class: "form-control"} %>
             </div>
           </div>
         </div>
@@ -35,17 +34,19 @@
 
         <div class="row">
           <div class="col-sm-4">
-            <%=f.date_field :startDate,class: "form-control", placeholder: "Start Date", required: true  %>
+            <%=f.date_field :startDate,class: "form-control  date-range-picker", placeholder: "Start Date", required: true  %>
           </div>
           <div class="col-sm-4">
-            <%=f.date_field :endDate, class: "form-control", placeholder: "End Date", required: true  %>
+            <%=f.date_field :endDate, class: "form-control date-range-picker", placeholder: "End Date", required: true  %>
           </div>
         </div>
 
 
         <div class="content-star">
           <div class="content-sz">
-            <%=f.cktext_area :description,rows: 50, class: "form-control", placeholder: "Body of content", required: true  %>
+              <div data-no-turbolink>
+            <%=f.cktext_area :description,rows: 10, class: "form-control", placeholder: "Body of content", required: true  %>
+              </div>
           </div>
         </div>
 

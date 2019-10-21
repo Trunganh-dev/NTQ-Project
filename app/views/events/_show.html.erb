@@ -1,0 +1,37 @@
+     <div class="container">
+              <div class="row">
+                <div class="event-detail">
+                  <div class="row">
+                    <p>Title:</p>
+                      <%= @event.title %>
+                  </div>
+                  <div class="row">
+                    <p>Something about your event:</p>
+                      <%= @event.something %>
+                  </div>
+                  <div class="row">
+                    <p>Document Link:</p>
+                      <%= @event.document %>
+                  </div>
+                  <div class="row">
+                    <p>Speaker:</p>
+                      <%= @event.speaker %>
+                  </div>
+                  <div class="row">
+                    <p>Start Date:</p>
+                      <%= @event.startDate %>
+                  </div>
+                  <div class="row">
+                    <p>End Date:</p>
+                      <%= @event.endDate %>
+                  </div>
+                  <div class="row">
+                    <p>Duration:</p>
+                      <%= @event.duration %> minutes
+                  </div>
+                </div>
+              </div>
+      </div>
+  <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+  </div>
