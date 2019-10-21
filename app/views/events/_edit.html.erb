@@ -2,12 +2,52 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"
-          aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Edit Event</h4>
+
+          <div class="row">
+            <div class="col-md-8">
+              <h4 class="modal-title"><%= @event.title %></h4>
+            </div>
+              <div class="col-md-4">
+              <div class="row">
+                <div class="control-label col-sm-3">
+                </div>
+                <div class="control-label col-sm-1">
+                  <a class="glyphicon glyphicon-edit"></a>
+                </div>
+                <div class="col-md-1">
+                  <a class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#exampleModal"></a>
+                </div>
+                <div class="col-md-1">
+                  <%= link_to "", @event,class: "glyphicon glyphicon-trash", method: :delete, data: { confirm: 'Are you sure?' },remote: true %>
+                </div>
+                <div class="col-md-3">
+                  <button type="button" class="close glyphicon glyphicon-remove" data-dismiss="modal"></button>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+      <div class="modal-body">
+        <%= render 'show', event: @event %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Event</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       <div class="modal-body">
-        <%= render 'form', event: @event %>
+      <%= render 'form', event: @event %>
+      </div>
+      <div class="modal-footer">
       </div>
     </div>
   </div>

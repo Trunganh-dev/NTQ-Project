@@ -4,14 +4,15 @@ initialize_calendar = function() {
     var calendar = $(this);
     calendar.fullCalendar({
       header: {
-        left: 'prev,next today',
+        left: 'prev',
         center: 'title',
-        right: 'month,agendaWeek,agendaDay'
+        right: 'next'
       },
       selectable: true,
       selectHelper: true,
       editable: true,
       eventLimit: true,
+      duration: { days: 4 },
       events: '/events',
 
       select: function(start, end) {

@@ -7,7 +7,10 @@ class CreateEvents < ActiveRecord::Migration[5.1]
       t.string     :document
       t.date       :startDate
       t.date       :endDate
+      t.string     :duration
       t.string     :color
+      t.string     :speaker
+      t.string     :something
       t.references :user, foreign_key: true
       t.references :group, foreign_key: true
 

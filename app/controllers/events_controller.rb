@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :load_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
   layout "layout_group"
   def index
         @events = Event.all
@@ -17,25 +17,27 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new (event_params)
+    @event = Event.new(event_params)
     @event.save
-    redirect_to @event
+    flash[:success] = "Create event success"
   end
 
   def update
-    @event.update_attributes (event_params)
+    @event.update(event_params)
   end
+
 
   def destroy
     @event.destroy
   end
 
   private
-  def load_event
-    @event = Event.find_by id: params[:id]
+  def set_event
+      @event = Event.find(params[:id])
   end
 
   def event_params
-    params.require(:event).permit(:title, :startDate, :endDate, :color)
+    #params[:endDate] = params[:startDate].to_datetime + params[:duration].to_number.minutes
+    params.require(:event).permit(:title, :somting, :document, :speaker, :startDate, :endDate, :color, :duration)
   end
 end
