@@ -19,18 +19,22 @@
 //= require rails.validations
 //= require_tree .
 
+// upload anh
+$(document).ready(function(){
+  // Upload anh
+   $('.upload').change(function(){
+       $('.upload').parent().submit();
+   });
+   // end Upload anh
+});
+// end uploadanh
 
 $(document).ready(function() {
+
   $(".js-example-tags").select2({
       tags: true
-      });
-      function renderHtml(data) {
-        var html = data.map(function(user){
-            return '<li>' + user.email + '</li>';
-        });
-        html = '<ul>' + html.join('') + '</ul>';
-        return html;
-    }
+  });
+
   $('.add').keyup(function(){
       let email = $('.add').val();
       console.log(email);
@@ -39,37 +43,12 @@ $(document).ready(function() {
         type: 'GET',
         data: {
           email: email
-
+        },
+        success: function(data){
+          window.location.reload()
         }
-      }).done(function(response) {
-        console.log(response);
-        // var html = renderHtml(response);
-        // console.log(response);
-        // $('#getemail').html(html);
-      });
+      })
   });
-});
-
-
-
-$(document).ready(function() {
-  var showChar = 100;
-  var ellipsestext = "...";
-  var moretext = "more";
-  var lesstext = "less";
-  $('.more').each(function() {
-    var content = $(this).html();
-
-    if(content.length > showChar) {
-
-      var c = content.substr(0, showChar);
-      var h = content.substr(showChar-1, content.length - showChar);
-
-$('.upload').on('change', function(){
-  $(this).parent().submit();
-});
-
-
 
   //View more
   $('.moreless-button').click(function() {
@@ -82,5 +61,9 @@ $('.upload').on('change', function(){
   });
 
 });
+
+
+
+
 
 

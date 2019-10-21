@@ -5,10 +5,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :timeoutable,
          :recoverable, :rememberable, :validatable,:omniauthable, :omniauth_providers => [:google_oauth2]
 
-
   has_many :contents
   has_many :roles, :dependent => :destroy
   has_many :groups, through: :roles
+  has_many :attendances
+  
 
 
   def self.from_omniauth(auth)

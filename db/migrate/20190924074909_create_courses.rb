@@ -3,6 +3,7 @@ class CreateCourses < ActiveRecord::Migration[5.1]
     create_table :courses do |t|
       t.string :name
       t.string :slug
+      t.string :user_id
       t.string :thumbnail
       
       t.timestamps

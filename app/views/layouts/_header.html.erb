@@ -75,15 +75,6 @@
 
                 <% end %>
             </div>
-            <div class="popup" onclick="myFunction()">Pick a Course
-                <div class="popuptext" id="myPopup">
-                    <ul>
-                        <% @cour.each do |course| %>
-                        <li class="course"><%= link_to  course.name, groups_url(course_id: course.id) %></li>
-                        <% end %>
-                    </ul>
-                </div>
-            </div>
             <script>
                 function openForm() {
                     document.getElementById("myForm").style.display = "block";

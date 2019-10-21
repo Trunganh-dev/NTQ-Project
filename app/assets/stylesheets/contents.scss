@@ -13,6 +13,10 @@
  padding-bottom: 15px;
 }
 
+.content-date-join span {
+  color: aqua;
+}
+
 .content-img {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -26,13 +30,13 @@
 
 .content-email span {
   font-size: 15px;
-  color:rgb(39, 155, 97);
+  color:aqua;
   width: 200px;
 }
 
 .content-body a {
   font-size: 15px;
-  color:rgb(168, 26, 45);
+  color:rgb(86, 128, 128);
 }
 .bt-create {
  padding-left: 205px;
@@ -47,11 +51,9 @@ padding-right:30px;
   width: 234px;
   height: 300px;
   position: relative;
-  z-index: 0;
 }
 
 .content-group  {
-  z-index: 4;
   position: absolute;
   top: 10px;
   left: 50px;
@@ -90,13 +92,8 @@ color: darkgrey;
 .img-sz{
 width: 50px;
 }
-//* Show More *//
-#section {
-  width: 500px;
-  height: 400px;
-  word-wrap: break-word;
-}
 
-.moretext {
-  display: none;
+.content-title {
+  font-size: 18px;
+  font-weight: bold;
 }

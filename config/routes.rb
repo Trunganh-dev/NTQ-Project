@@ -17,7 +17,8 @@ Rails.application.routes.draw do
 
   get  '/approve-member',    to: 'pendings#approveMember', as: "approve_member"
   get  '/decline-member',    to: 'pendings#declineMember', as: "decline_member"
-
+  
+  post  '/create-attendance',    to: 'attendances#create', as: "attendance_member"
 
   root 'home#index'
 
@@ -25,14 +26,14 @@ Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 
-  resources :users
+  resources :users, only: [:show, :index]
   resources :attendances
   resources :groups do
-    resources :contents, except: [:show, :index]
-    resources :members
-
+    resources :contents,   except: [:show, :index]
+    resources :members,    only: [:index, :create]
+    resources :attendances
     resources :pendings
-    resources :settings
+    resources :settings,    only: [:index]
 
   end
   resources :courses

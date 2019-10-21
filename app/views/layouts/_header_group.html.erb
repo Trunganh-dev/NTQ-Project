@@ -47,7 +47,11 @@
 </div>
 <div class="header_bot">
     <div class="cover-image">
+    <% if @group.cover.nil? || @group.cover.blank? %>
         <%= image_tag("hero_1.jpg", alt: "Cover",id:"cover-header") %>
+    <% else %>
+         <%= image_tag @group.cover.url %>
+    <% end %>
     </div>
 </div>
   <!-- menu group avatar group -->
@@ -55,12 +59,16 @@
         <div class="row" id="menuG">
             <div class="col-md-3">
                 <div class="avatarGroup">
-                  <%= image_tag("ava.jpeg", alt: "Cover",id:"cover-header") %>
+                 <% if @group.picture.nil? || @group.picture.blank?%>
+                     <%= image_tag("ava.jpeg", alt: "Cover",id:"cover-header") %>
+                <% else %>
+                    <%= image_tag @group.picture.url %>
+                <% end %>
                 </div>
                 <div class="camera">
-                    <%= form_for(@group, url: groups_path) do |f| %>
-                    <%= f.label :thumbnail, ".",class: "glyphicon glyphicon-camera", for: "avata" %>
-                    <%= f.file_field :thumbnail, id: "avata",class: "upload" %>
+                    <%= form_for @group do |f| %>
+                    <%= f.label :picture, ".",class: "glyphicon glyphicon-camera", for: "avata" %>
+                    <%= f.file_field :picture, id: "avata",class: "upload" %>
                     <% end %>
                 </div>
                 <div class="lean">
@@ -78,7 +86,6 @@
                         <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Pending
                         </div>
-                    </div>
                     <% else %>
                        <button><%= link_to  "+ Want To Join", join_group_path(user_id: current_user.id, group_id: @group.id) %></button>
                     <% end %>
@@ -95,29 +102,34 @@
                             <%= link_to  "Member",  group_members_path(@group) %>
                         </li>
                         <li>
-                            <a href="#">Attendance</a>
+                            <%= link_to  "Attendance",  group_attendances_path(@group) %>
                         </li>
                         <li>
                             <a href="#">Calendar</a>
                         </li>
                         <li>
-                            
+                            <% if  user_is_captain? %>
                             <%= link_to  "Pending items", group_pendings_path(@group) %>
+                             <% end %>
                         </li>
                         <li>
+                        <% if  user_is_captain? %>
                             <%= link_to  "Setting", group_settings_path(@group) %>
+                         <% end %>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="col-md-3" style= "width: 35px;border-radius: 100%; background-color: blue;color: #fff;height: 22px;right: 213px;
-    top: -2px;">
+            <% if  user_is_captain? %>
+            <div class="col-md-3" style= "width: 35px;border-radius: 100%; background-color: blue;color: #fff;height: 22px;right: 213px;top: -2px;">
                 <span>
                     <% if pending_item %>
                         <%= @pending_item %>
                     <% end %>
                 </span>
             </div>
+            <% end %>
         </div>
     </div>
     <!-- end menu group avatar group -->
+

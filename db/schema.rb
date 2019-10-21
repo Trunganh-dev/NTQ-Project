@@ -14,12 +14,14 @@ ActiveRecord::Schema.define(version: 20191015174320) do
 
   create_table "attendances", force: :cascade do |t|
     t.integer "user_id"
-    t.date "date"
-    t.text "note"
-    t.boolean "isDone"
-    t.boolean "present"
+    t.integer "event_id"
+    t.integer "content_id"
+    t.string "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["content_id"], name: "index_attendances_on_content_id"
+    t.index ["event_id"], name: "index_attendances_on_event_id"
+    t.index ["user_id"], name: "index_attendances_on_user_id"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -54,6 +56,7 @@ ActiveRecord::Schema.define(version: 20191015174320) do
   create_table "courses", force: :cascade do |t|
     t.string "name"
     t.string "slug"
+    t.string "user_id"
     t.string "thumbnail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -78,7 +81,8 @@ ActiveRecord::Schema.define(version: 20191015174320) do
     t.string "name"
     t.string "slug"
     t.string "decription"
-    t.string "thumbnail"
+    t.string "picture"
+    t.string "cover"
     t.date "startdate"
     t.integer "course_id"
     t.datetime "created_at", null: false
@@ -86,6 +90,9 @@ ActiveRecord::Schema.define(version: 20191015174320) do
     t.index ["course_id", "created_at"], name: "index_groups_on_course_id_and_created_at"
     t.index ["course_id"], name: "index_groups_on_course_id"
     t.index ["name"], name: "index_groups_on_name", unique: true
+    t.index [nil, "created_at"], name: "index_groups_on_content_id_and_created_at"
+    t.index [nil, "created_at"], name: "index_groups_on_event_id_and_created_at"
+    t.index [nil, "created_at"], name: "index_groups_on_user_id_and_created_at"
   end
 
   create_table "roles", force: :cascade do |t|
