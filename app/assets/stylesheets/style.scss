@@ -105,7 +105,7 @@ a:hover {
   	cursor: pointer;
   	opacity: 0.8;
   	position: absolute;
-      top: 272px;
+      top: 414px;
       left: 719px;
       width: 229px;
     }
@@ -257,7 +257,6 @@ a:hover {
 
   #main .row {
       height: auto;
-      min-height: 342px;
   }
 
   #main .row .box-main {
@@ -856,4 +855,77 @@ a:hover {
 }
 .camera input[type=file]::-webkit-file-upload-button {
   visibility: hidden;
+}
+
+.label-form {
+  margin-bottom: 10px;
+}
+
+  /*attendance*/
+  .member-attendance {
+    width: 100%;
+    box-shadow: 5px 5px 20px;
+    padding: 20px 10px;
+    margin-top: 10px;
+  }
+  .nav-attendance {
+    height: 150px;
+    background-color: cyan;
+  }
+
+  .nav-attendance img {
+    height: 150px;
+    width: 100%;
+  }
+  .row .mt-2 {
+    margin-top: 5px;
+  }
+  
+  .px-2 {
+    padding: 0 10px;
+  }
+  .chx-attendance {
+    width: 100%;
+  }
+  
+  .email-attendance {
+    width: 100%;
+  }
+  
+  .avt-attendance {
+    width: 80px;
+    height: 80px;
+  }
+  .my-2 {
+    margin: 0 10px;
+  }
+  
+  .input-note {
+    padding-top: 40px;
+  }
+  
+  .py-2 {
+    padding: 0 15px;
+  }
+  
+  /*Attendance List*/
+.attendance-child {
+  box-shadow: 5px 5px 20px;
+  margin: 10px;
+}
+
+.w-100 {
+	width: 100px;
+}
+
+.p-2 {
+	padding: 10px;
+}
+
+.detail-content {
+
+}
+
+.list-at a {
+  text-decoration: none;
 }

@@ -10,14 +10,14 @@ validate :valid_end_date
 
 belongs_to :user
 belongs_to :group
-
+has_many :attendances
 
 private
   def valid_start_date
     errors.add(:startDate, "In valid start date") if startDate < Date.today
-    end
+  end
 
   def valid_end_date
     errors.add(:endDate, "In valid end date") if endDate < startDate
-    end
+  end
 end

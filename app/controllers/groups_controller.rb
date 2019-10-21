@@ -15,6 +15,8 @@ class GroupsController < ApplicationController
       @group = Group.find_by(id: params[:id])
       @course = Course.find_by(id: @group.course_id)
       @contents = Content.where(group_id: @group.id,status: 1).order("endDate DESC").page(params[:page]).per(5)
+      @members = Role.where(roles: 3, status:1, group_id: @group.id)
+
   end
 
   def create
@@ -38,7 +40,7 @@ class GroupsController < ApplicationController
         redirect_to root_path
       end
     else 
-      @course = Course.create(name: params[:group][:course_name])
+      @course = Course.create(name: params[:group][:course_name], user_id: current_user.id)
       @group = Group.new(group_params)
       @group.slug = to_slug(params[:group][:name])
       @group.course_id = @course.id
@@ -60,11 +62,18 @@ class GroupsController < ApplicationController
   end
 
   def update
-    binding.pry
+    @group = Group.find(params[:id])
+    if @group.update_attributes(group_params)
+      flash[:success] = "Group updated"
+      redirect_to @group
+    else
+      flash.now[:danger] = "Group don't updated"
+      redirect_to group_settings_path(@group)
+    end
   end
   private
   def group_params
-    params.require(:group).permit :name, :decription, :startdate
+    params.require(:group).permit :name, :decription, :startdate, :picture, :cover
   end
 
   def logged_in_user

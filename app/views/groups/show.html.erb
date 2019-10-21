@@ -57,7 +57,76 @@
           </div>
           <div class="content-actions">
             <div class="content-button">
-              <button style="opacity:0.6" type="button" class="btn btn-outline-dark">Take attendance</button>
+               <div>
+                    <button class="btn btn-success" data-toggle="modal" data-backdrop="static"
+                            data-keyboard="true" data-target="#attendanceContent">Take
+                        attendance
+                    </button>
+                </div>
+                <!--Modal attendance-->
+                <div id="attendanceContent" class="modal" role="dialog">
+                    <div class="modal-dialog modal-lg">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Attendance</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div>
+                                  <%= form_for :member,  url: attendance_member_path do |f| %>
+                                    <div class="row px-1">
+                                        <div class="nav-attendance px-1">
+                                            <div class="img-attendance">
+                                                <%= image_tag("hero_1.jpg", alt: "Cover",id:"cover-header") %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2 my-2 py-2">
+                                    <% @members.each do |member|%>
+                                   
+                                        <div class="member-attendance">
+                                            <div class="row px-2">
+                                                <div class="col-sm-7">
+                                                    <div class="row">
+                                                        <div class="col-sm-4 text-center">
+                                                           <%= image_tag(member.user.pictures, alt: "Cover",class: "avt-attendance") %>
+                                                        </div>
+                                                        <div class="content col-sm-8">
+                                                            <h4><%= member.user.fullname %></h4>
+                                                            <div class="email-attendance"> <%= member.user.email %> </div>
+                                                            <div class="chx-attendance">
+                                                                <input type="checkbox" name="check[<%= member.id %>]" value="yes"> Present
+                                                                <input type="hidden" name="user_id[<%= member.id %>]" value="<%= member.id %>">
+                                                                <input type="hidden"name="content_id" value="<%= content.id %>">
+                                                                <input type="hidden"name="group_id" value="<%= member.group.id %>">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-5 ">
+                                                    <div class="input-note">
+                                                        <input type="text" name="note[<%= member.id %>]" class="" placeholder="Note">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                     
+                                    <% end %>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                       <%= f.submit "Submit", class: 'btn btn-success' %>  
+                                    </div>
+                                  <% end %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end Modal attendance-->
             </div>
           </div>
         </div>

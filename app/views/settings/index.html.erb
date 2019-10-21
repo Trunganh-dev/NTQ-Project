@@ -14,7 +14,7 @@
         <div class="tab-content" style="padding-left: 12px;">
             <div id="home" class="tab-pane fade in active">
                 <h3>Edit group </h3>
-             <%= form_for(:group, url: groups_path, html: {class: "form-container"}) do |f| %>
+             <%= form_for(@group, html: {class: "form-container"}) do |f| %>
                    
                     <%= f.label :name, "Your group name" %>
                     <%= f.text_field :name, class: 'form-control',:required => true, maxlength: "64" %>
@@ -22,21 +22,32 @@
                     <%= f.label :decription %>
                     <%= f.text_field :decription, class: 'form-control',:required => true, maxlength: "255" %>
 
-                    <button type="submit" class="btn-sm btn-primary">Save</button>
+                    <%= f.label :picture, "Avatar Group" %>
+                    <%= f.file_field :picture, class: 'form-control label-form' %>
+
+                    <%= f.label :cover, "Cover Group" %>
+                    <%= f.file_field :cover, class: 'form-control label-form' %>
+
+
+                    <%= f.submit "Save", class: "btn-sm btn-primary sub" %>
 
                 <% end %>
             </div>
 
             <div id="menu3" class="tab-pane fade">
                 <h3>Edit Course </h3>
-                 <%= form_for(:course, url: courses_path, html: {class: "form-container"}) do |f| %>
-                     
-                    <%= f.label :name, "Your group name" %>
-                    <%= f.text_field :name, class: 'form-control',:required => true, maxlength: "64", placeholder: @course.name %>
+                    <% if !@course.nil? %>
+                        <%= form_for(@course, html: {class: "form-container"}) do |f| %>
+                        
+                        <%= f.label :name, "Your group name" %>
+                        <%= f.text_field :name, class: 'form-control',:required => true, maxlength: "64", placeholder: @course.name %>
+                        <input type="hidden" id="custId" name="group_id" value="<%= @group.id %>">
+                        <button type="submit" class="btn-sm btn-primary">Save</button>
 
-                    <button type="submit" class="btn-sm btn-primary">Save</button>
-
-                <% end %>
+                        <% end %>
+                    <% else %>
+                        <p>Bạn không có quyền sửa course.</p>
+                    <% end %>
             </div>
         </div>
 
