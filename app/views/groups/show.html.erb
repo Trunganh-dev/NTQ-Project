@@ -59,19 +59,19 @@
             <div class="content-button">
                <div>
                     <button class="btn btn-success" data-toggle="modal" data-backdrop="static"
-                            data-keyboard="true" data-target="#attendanceContent">Take
-                        attendance
+                            data-keyboard="true" data-target="#attendanceContent<%=  content.id %>">Take
+                        attendance 
                     </button>
                 </div>
                 <!--Modal attendance-->
-                <div id="attendanceContent" class="modal" role="dialog">
+                <div id="attendanceContent<%=  content.id %>" class="modal" role="dialog">
                     <div class="modal-dialog modal-lg">
 
                         <!-- Modal content-->
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Attendance</h4>
+                                <h4 class="modal-title">Attendance <%=  content.id %></h4>
                             </div>
                             <div class="modal-body">
                                 <div>
@@ -95,19 +95,19 @@
                                                         </div>
                                                         <div class="content col-sm-8">
                                                             <h4><%= member.user.fullname %></h4>
-                                                            <div class="email-attendance"> <%= member.user.email %> </div>
+                                                            <div class="email-attendance"> <%= member.user.email %></div>
                                                             <div class="chx-attendance">
-                                                                <input type="checkbox" name="check[<%= member.id %>]" value="yes"> Present
-                                                                <input type="hidden" name="user_id[<%= member.id %>]" value="<%= member.id %>">
-                                                                <input type="hidden"name="content_id" value="<%= content.id %>">
-                                                                <input type="hidden"name="group_id" value="<%= member.group.id %>">
+                                                                <input type="checkbox" name="member[<%= member.id %>][check]" value="yes"> Present
+                                                                <input type="hidden" name="member[<%= member.id %>][user_id]" value="<%= member.user.id %>">
+                                                                <input type="hidden"name="member[<%= member.id %>][content_id]" value="<%= content.id %>">
+                                                                <input type="hidden"name="member[<%= member.id %>][group_id]" value="<%= member.group.id %>">
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-5 ">
                                                     <div class="input-note">
-                                                        <input type="text" name="note[<%= member.id %>]" class="" placeholder="Note">
+                                                        <input type="text" name="member[<%= member.id %>][note]" class="" placeholder="Note">
                                                     </div>
                                                 </div>
                                             </div>
@@ -160,7 +160,7 @@
               <div class="col-xs-12 ">
 
                   <% if content.description.length > 300 %>
-                    <%= truncate sanitize(content.description),length: 300 %>
+                    <%= truncate sanitize(content.description), length: 300 %>
                     <%= link_to_function '...View all', "$(this).parent().html('#{escape_javascript  content.description}')" %>
                   <% else %>
                     <%= sanitize(content.description) %>
