@@ -47,7 +47,7 @@ class ContentsController < ApplicationController
    flash[:success] = "Content was updated"
    redirect_to @group
   else
-   flash[:success] = "Content was not updated"
+   flash[:danger] = "Content was not updated"
    render 'edit'
   end
 end

@@ -1,8 +1,11 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   layout "layout_group"
+
+
   def index
-        @events = Event.all
+        @events = Event.where('endDate >= ?',Time.now)
+        @eventsdone = Event.where('endDate <= ?',Time.now)
         @group = Group.find_by(id: params[:group_id])
   end
 
@@ -17,9 +20,14 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
-    @event.save
-    flash[:success] = "Create event success"
+    #if !Role.where(user_id: current_user.id, group_id: @group.id, roles: 1).blank?
+      @event = Event.new(event_params)
+      @event.save
+      flash.now[:success] = "Create event successfully"
+    #else
+      #flash.now[:danger] = "Bạn không có quyền tạo event"
+      #redirect_to root_path
+    #end
   end
 
   def update
@@ -32,12 +40,13 @@ class EventsController < ApplicationController
   end
 
   private
+
   def set_event
       @event = Event.find(params[:id])
   end
 
   def event_params
-    #params[:endDate] = params[:startDate].to_datetime + params[:duration].to_number.minutes
-    params.require(:event).permit(:title, :somting, :document, :speaker, :startDate, :endDate, :color, :duration)
+    params.require(:event).permit(:title, :something, :document, :speaker, :startDate, :color, :duration)
   end
+
 end
