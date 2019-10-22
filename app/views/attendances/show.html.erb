@@ -7,9 +7,8 @@
         <div class="row">
             <div class="col-lg-8 main-left">
                 <div class="row p-2 text-center my-2">
-                    <h3>Name Contents or Events</h3>
-                    <p>date attendance</p>
-                    <p>Messsage </p>
+                    <h3>Content: <%= @content.title %></h3>
+                    <p><%= @content.created_at %></p>
                 </div>
                 <!--list member diem danh-->
                 <div class="row ">
@@ -20,7 +19,7 @@
                             <div class="col-sm-6">
                                 <div class="row">
                                     <div class="col-sm-4 p-2">
-                                    <img src="" alt="" class="avt-attendance">
+                                    <%= image_tag  "hero_1.jpg", class: "avt-attendance" %>
                                     </div>
                                     <div class="col-sm-8">
                                         <span class="email-attendance"><h4><%= member.user.fullname %></h4></span>
@@ -135,8 +134,6 @@
                         <option value=2029>2029</option>
                         <option value=2030>2030</option>
                     </select></form>
-
-
                 </div>
             </div>
         </div>
