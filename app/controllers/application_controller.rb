@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_action :course
   before_action :follow_group
-  
+
   def course
     @course = Course.all.page(params[:page]).per(6)
     @cour   = Course.all.order(name: :desc)

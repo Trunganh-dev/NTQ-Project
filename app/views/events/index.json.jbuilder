@@ -1,5 +1,7 @@
 json.array! @events do |event|
-date_format = '%Y-%m-%d'
+
+  date_format = '%Y-%m-%d'
+
   json.id event.id
 
   json.title event.title

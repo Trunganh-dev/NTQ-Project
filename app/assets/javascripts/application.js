@@ -13,6 +13,7 @@
 //= require jquery
 //= require popper
 //= require bootstrap
+//= require bootstrap-datepicker
 //= require moment
 //= require fullcalendar
 //= require select2
@@ -61,3 +62,5 @@ $(document).ready(function() {
       $(this).text("Read more")
     }
   });
+
+});

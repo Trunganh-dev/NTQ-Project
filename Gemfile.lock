@@ -52,6 +52,8 @@ GEM
       execjs
     bcrypt (3.1.13)
     bindex (0.8.1)
+    bootstrap-datepicker-rails (1.8.0.1)
+      railties (>= 3.0)
     bootstrap-kaminari-views (0.0.5)
       kaminari (>= 0.13)
       rails (>= 3.1)
@@ -227,8 +229,6 @@ GEM
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
-    ruby-vips (2.0.16)
-      ffi (~> 1.9)
     ruby_dep (1.5.0)
     rubyzip (2.0.0)
     sass (3.7.4)
@@ -286,6 +286,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-datepicker-rails
   bootstrap-kaminari-views
   bootstrap-sass (= 3.3.7)
   byebug
@@ -301,7 +302,7 @@ DEPENDENCIES
   jquery-rails (= 4.3.1)
   kaminari
   listen (>= 3.0.5, < 3.2)
-  mini_magick
+  mini_magick (= 4.7.0)
   momentjs-rails
   omniauth
   omniauth-google-oauth2
