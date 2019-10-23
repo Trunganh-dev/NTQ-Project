@@ -42,10 +42,10 @@
                                   <p><%= content.created_at %></p>
 
                                   <button type="button" class="btn btn-danger">
-                                    <%= link_to  "Decline", decline_member_path(group_id: content.group.id, id: content.id) %>
+                                    <%= link_to  "Decline", decline_member_path(group_id: content.group.id, id: content.id), class: "apvode" %>
                                   </button>
                                   <button type="button" class="btn btn-success">
-                                    <%= link_to  "Approve", approve_member_path(group_id: content.group.id, id: content.id) %>
+                                    <%= link_to  "Approve", approve_member_path(group_id: content.group.id, id: content.id),  class: "apvode" %>
                                   </button>
                               </div>
                             </div>
