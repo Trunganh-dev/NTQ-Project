@@ -161,7 +161,7 @@
 
                   <% if content.description.length > 300 %>
                     <%= truncate sanitize(content.description.html_safe),length: 300 %>
-                    <%= link_to_function '...View all', "$(this).parent().html('#{escape_javascript  sanitize(content.description.html_safe)}')" %>
+                    <%= link_to_function '...View all', "$(this).parent().html('#{escape_javascript  content.description.html_safe}')" %>
                   <% else %>
                     <%= sanitize(content.description.html_safe) %>
                   <% end %>
