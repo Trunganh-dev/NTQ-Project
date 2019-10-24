@@ -11,7 +11,7 @@
                     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
                     <% if user_signed_in? %>
                         <% @following.each do |follow| %>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> <%= follow.name %></a></li>
+                        <li><%= link_to  follow.name, group_path(follow) %></li>
                         <% end %>
                     <% end %>
                         <li role="presentation" class="divider"></li>
