@@ -10,6 +10,7 @@ validate :valid_end_date
 
 belongs_to :user
 belongs_to :group
+belongs_to :event
 has_many :attendances
 
 private

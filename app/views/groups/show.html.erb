@@ -28,7 +28,7 @@
           <div class="content-email">
 
             <div class="content-status">
-              <% if content.endDate>= Date.today %>
+              <% if content.endDate >= Date.today %>
               <h3 align="center">Learning</h3>
               <% else %>
               <h3 align="center">Done</h3>
@@ -39,17 +39,17 @@
               <img src="<%= content.user.pictures%>" alt="" id="avatar">
               <%= content.user.fullname %> <br>
               <div class="content-create-sz">
-                <%= content.created_at %>
+                <%= content.created_at.strftime("%H:%M %d/%m/%Y") %>
               </div>
             </span>
           </div>
           <div class="content-date-join">
             <div class="content-create-sz">
               <span> Start:
-                <%=  content.startDate %></span>
+                <%=  content.startDate.strftime("%d/%m/%Y") %></span>
               </br>
               <span>End:
-                <%=  content.endDate %></span>
+                <%=  content.endDate.strftime("%d/%m/%Y") %></span>
               </br>
               <span>Level:
                 <%=  content.level %></span>
@@ -156,14 +156,14 @@
             </div>
           </div>
           <div class="row">
-            <div class="content-body">
-              <div class="col-xs-12 ">
+            <div class="content-body ">
+              <div class="col-xs-6 ">
 
                   <% if content.description.length > 300 %>
                     <%= truncate sanitize(content.description), length: 300 %>
                     <%= link_to_function '...View all', "$(this).parent().html('#{escape_javascript  content.description}')" %>
                   <% else %>
-                    <%= sanitize(content.description) %>
+                    <%= sanitize(content.description.html_safe) %>
                   <% end %>
 
               </div>

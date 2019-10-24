@@ -16,7 +16,8 @@ initialize_calendar = function() {
       events: '/events',
 
       select: function(start, end) {
-        $.getScript('/events/new', function() {});
+         var group_id = $("#calendar").data("group-id");
+        $.getScript('/events/new?group_id=' + group_id, function() {});
 
         calendar.fullCalendar('unselect');
       },

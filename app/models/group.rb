@@ -6,6 +6,7 @@ class Group < ApplicationRecord
     mount_uploader :cover, CoverUploader
     belongs_to :course
     has_many :contents
+    has_many :events
     has_many :roles, :dependent => :destroy
     has_many :users, through: :roles
 

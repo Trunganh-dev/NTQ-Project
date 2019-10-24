@@ -43,14 +43,14 @@ class ContentsController < ApplicationController
   end
 
   def update
-  if @content.update(content_params)
-   flash[:success] = "Content was updated"
-   redirect_to @group
-  else
-   flash[:danger] = "Content was not updated"
-   render 'edit'
+    if @content.update(content_params)
+     flash[:success] = "Content was updated"
+     redirect_to @group
+    else
+     flash[:danger] = "Content was not updated"
+     render 'edit'
+    end
   end
-end
 
   def destroy
   @content.destroy

@@ -3,7 +3,18 @@
 
 .event-form-pading {
 padding-bottom:20px;
+margin-top: 10px;
 }
+
+.select2-container--default .select2-selection--single {
+  width: 270px;
+  height: 35px;
+  padding-top:-10px;
+}
+
+.select3 {
+    width: 270px;
+  }
 
 .event-detail {
 padding-left: 50px;
@@ -15,7 +26,6 @@ font-family: arial;
 font-size: 17px;
 font-family: arial;
 padding-top: 30px;
-font-weight: bold;
 }
 
 .event-button {
