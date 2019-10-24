@@ -15,7 +15,7 @@ class GroupsController < ApplicationController
       @group = Group.find_by(id: params[:id])
       @course = Course.find_by(id: @group.course_id)
       @members = Role.where(roles: 3, status:1, group_id: @group.id)
-      @contents = Content.where(group_id: @group.id,status: 1).order("endDate DESC")
+      @contents = Content.where(group_id: @group.id,status: 1).order("endDate DESC","startDate DESC")
 
   end
 
@@ -39,7 +39,7 @@ class GroupsController < ApplicationController
         flash[:danger] = "Create new groups fail. Name not UNIQUE"
         redirect_to root_path
       end
-    else 
+    else
       @course = Course.create(name: params[:group][:course_name], user_id: current_user.id)
       @group = Group.new(group_params)
       @group.slug = to_slug(params[:group][:name])

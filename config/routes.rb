@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   get  '/approve-member',    to: 'pendings#approveMember', as: "approve_member"
   get  '/decline-member',    to: 'pendings#declineMember', as: "decline_member"
-  
+
   post  '/create-attendance',    to: 'attendances#create', as: "attendance_member"
 
   root 'home#index'

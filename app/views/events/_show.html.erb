@@ -2,32 +2,25 @@
               <div class="row">
                 <div class="event-detail">
                   <div class="row">
-                    <p>Title:</p>
-                      <%= @event.title %>
+                    <p><b>Title:</b> <%= @event.title %> </p>
                   </div>
                   <div class="row">
-                    <p>Something about your event:</p>
-                      <%= @event.something %>
+                    <p><b> Something about your event:</b> <%= @event.something %> </p>
                   </div>
                   <div class="row">
-                    <p>Document Link:</p>
-                      <%= @event.document %>
+                    <p><b>Document Link:</b> <%= @event.document %></p>
                   </div>
                   <div class="row">
-                    <p>Speaker:</p>
-                      <%= @event.speaker %>
+                    <p><b>Speaker:</b> <%= @event.speaker %></p>
                   </div>
                   <div class="row">
-                    <p>Start Date:</p>
-                      <%= @event.startDate %>
+                    <p><b>Start Date:</b> <%= @event.startDate.strftime("%H:%M %d/%m/%Y") %></p>
                   </div>
                   <div class="row">
-                    <p>End Date:</p>
-                      <%= @event.endDate %>
+                    <p><b>End Date:</b> <%= @event.endDate.strftime("%H:%M %d/%m/%Y") %></p>
                   </div>
                   <div class="row">
-                    <p>Duration:</p>
-                      <%= @event.duration %> minutes
+                    <p><b>Duration:</b> <%= @event.duration %> minutes</p>
                   </div>
                 </div>
               </div>

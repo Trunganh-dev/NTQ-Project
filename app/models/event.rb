@@ -6,6 +6,9 @@ class Event < ApplicationRecord
   #validates :startDate, presence: true
   #validate :valid_start_date
 
+  belongs_to :group
+  has_one :event
+
   before_save :caculate_end_date
 
   private
