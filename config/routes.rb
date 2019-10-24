@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 
-  resources :users, only: [:show, :index]
+  resources :users, only: [:show,:update, :index]
   resources :attendances
   resources :groups do
     resources :contents,   except: [:show, :index]
