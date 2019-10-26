@@ -2,6 +2,7 @@ var initialize_calendar;
 initialize_calendar = function() {
   $('.calendar').each(function(){
     var calendar = $(this);
+    var group_id = $("#calendar").data("group-id");
     calendar.fullCalendar({
       header: {
         left: 'prev',
@@ -12,13 +13,13 @@ initialize_calendar = function() {
       selectHelper: true,
       editable: true,
       eventLimit: true,
-      duration: { days: 4 },
-      events: '/events',
+      events: '/groups/' + group_id + '/events.json',
 
       select: function(start, end) {
-         var group_id = $("#calendar").data("group-id");
-        $.getScript('/events/new?group_id=' + group_id, function() {});
-
+        var date = moment(start).format('YYYY-MM-DD');
+            console.log(date);
+        var group_id = $("#calendar").data("group-id");
+        $.getScript('/groups/' + group_id +'/events/new?startDate=' + date, function() {});
         calendar.fullCalendar('unselect');
       },
 

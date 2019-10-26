@@ -1,12 +1,13 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_start_date, only: [:create]
+  before_action :set_start_date_content, only: [:create]
   layout "layout_group"
 
   def index
         @group = Group.find_by(id: params[:group_id])
-        @events = Event.where(group_id: @group.id)
-        @eventsdone = Event.where('endDate <= ?',Time.now)
-
+        @events = Event.where(group_id: params[:group_id])
+        @eventsdone = Event.where(group_id: params[:group_id]).where('endDate <= ?',Time.now).order("endDate DESC")
   end
 
   def show
@@ -20,15 +21,19 @@ class EventsController < ApplicationController
   end
 
   def create
-    #if !Role.where(user_id: current_user.id, group_id: @group.id, roles: 1).blank?
-      @event = Event.new(event_params)
-      @event.save
-      flash.now[:success] = "Create event successfully"
-
-    #else
-      #flash.now[:danger] = "Bạn không có quyền tạo event"
-      #redirect_to root_path
-    #end
+    if !Role.where(user_id: current_user.id, group_id: params[:event][:group_id], roles: 1).blank?
+          @event = Event.new(event_params)
+        if !params[:event][:content_id].blank?
+          @event.startDate = @full_date_content
+          @event.color = "Red"
+        else
+          @event.startDate = @full_date
+        end
+          @event.save
+          flash.now[:success] = "Create event successfully"
+    else
+          flash.now[:danger] = "Bạn không có quyền tạo event"
+    end
   end
 
   def update
@@ -47,7 +52,20 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :something, :document, :speaker, :startDate, :color, :duration, :group_id)
+    params.require(:event).permit(:title, :something, :document,
+                                          :speaker, :color, :duration,
+                                          :group_id, :content_id)
   end
+
+  def set_start_date
+    @date = params.dig(:event, :startDate2) + " " + params.dig(:event, :startDate)
+    @full_date = Time.zone.parse(@date)
+  end
+
+  def set_start_date_content
+    @date = params.dig(:event, :startDate3) + " " + params.dig(:event, :startDate)
+    @full_date_content = Time.zone.parse(@date)
+  end
+
 
 end

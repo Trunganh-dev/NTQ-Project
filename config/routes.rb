@@ -20,6 +20,9 @@ Rails.application.routes.draw do
 
   post  '/create-attendance',    to: 'attendances#create', as: "attendance_member"
 
+  get  '/new-event-content',    to: 'events#newEvent', as: "new_event_content"
+
+
   root 'home#index'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
@@ -34,8 +37,8 @@ Rails.application.routes.draw do
     resources :attendances
     resources :pendings
     resources :settings,    only: [:index]
+    resources :events
   end
-  resources :events
   resources :courses
   resources :details
 end
