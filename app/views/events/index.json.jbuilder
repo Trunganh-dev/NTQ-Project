@@ -13,6 +13,8 @@ json.array! @events do |event|
 
   json.duration event.duration
 
+  json.color event.color unless event.color.blank?
+
   json.start event.startDate.strftime(date_format)
 
   json.end event.endDate.strftime(date_format)
