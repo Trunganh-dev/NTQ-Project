@@ -16,7 +16,6 @@ class GroupsController < ApplicationController
       @course = Course.find_by(id: @group.course_id)
       @members = Role.where(roles: 3, status:1, group_id: @group.id)
       @contents = Content.where(group_id: @group.id,status: 1).order("endDate DESC","startDate DESC")
-
   end
 
   def create

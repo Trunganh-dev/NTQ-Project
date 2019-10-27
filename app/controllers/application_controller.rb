@@ -7,12 +7,12 @@ class ApplicationController < ActionController::Base
   before_action :follow_group
 
   def course
-    @course = Course.all.page(params[:page]).per(6)
-    @cour   = Course.all.order(name: :desc)
+    @course = Course.all.page(params[:page])
+    @cour   = Course.all.order("created_at DESC")
   end
 
   def follow_group
-    @following = current_user.groups.order(name: :asc) if user_signed_in?
+    @following = current_user.groups.order("name ASC") if user_signed_in?
   end
 
 end

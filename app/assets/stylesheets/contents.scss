@@ -2,7 +2,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
+.col-content{
+  margin-left: 100px;
+}
+.col-xs-offset-1 {
+  margin-left: 15.333333% !important;
+}
 .content-body {
  padding-top: 15px;
  padding-bottom: 15px;
@@ -34,10 +39,18 @@
   width: 200px;
 }
 
-.content-body a {
-  font-size: 15px;
-  color:rgb(86, 128, 128);
+.apvode:hover {
+  color: none;
 }
+
+#view-all {
+  font-size: 15px;
+  color: #568080;
+  position: absolute;
+  top: 213px;
+  left: 467px;
+}
+
 .bt-create {
  padding-left: 205px;
  padding-bottom:10px;
