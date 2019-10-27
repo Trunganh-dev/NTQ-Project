@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20191023073651) do
     t.text "document"
     t.datetime "startDate"
     t.datetime "endDate"
-    t.integer "duration"
+    t.float "duration"
     t.string "color"
     t.text "speaker"
     t.string "something"
