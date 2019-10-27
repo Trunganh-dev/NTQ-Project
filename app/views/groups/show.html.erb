@@ -163,7 +163,6 @@
           <div class="row">
             <div class="content-body ">
               <div class="col-xs-6 ">
-
                   <% if content.description.length > 300 %>
                     <%= sanitize(content.description[0..300]) %>
                     <%= link_to_function '...View all', "$(this).parent().html('#{escape_javascript sanitize(content.description)}')", id: "view-all" %>

@@ -23,16 +23,16 @@ class EventsController < ApplicationController
   def create
     if !Role.where(user_id: current_user.id, group_id: params[:event][:group_id], roles: 1).blank?
           @event = Event.new(event_params)
-        if !params[:event][:content_id].blank?
-          @event.startDate = @full_date_content
-          @event.color = "Red"
-        else
-          @event.startDate = @full_date
-        end
+            if !params[:event][:content_id].blank?
+              @event.startDate = @full_date_content
+              @event.color = "Red"
+            else
+              @event.startDate = @full_date
+            end
           @event.save
           flash.now[:success] = "Create event successfully"
     else
-          flash.now[:danger] = "Bạn không có quyền tạo event"
+          flash.now[:danger] = "you don't have the right to create event"
     end
   end
 
