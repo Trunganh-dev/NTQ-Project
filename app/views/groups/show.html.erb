@@ -155,7 +155,7 @@
                   <li>
                     <%= link_to "Delete", [content.group, content], class: "btn btn-light", method: :delete, data: { confirm: "Are you sure you want to delete this content?"} %>
                   </li>
-                  <li><%= link_to "Create Event", new_group_event_path(content_id: content.id, group_id: content.group.id, title: content.title, startDate3: content.startDate), class: "btn btn-light", remote:true %></li>
+                  <li><%= link_to "Create Event", new_group_event_path(content_id: content.id, group_id: content.group.id, title: content.title), class: "btn btn-light", remote:true %></li>
                 </ul>
               </div>
             </div>

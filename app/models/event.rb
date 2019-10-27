@@ -16,6 +16,11 @@ class Event < ApplicationRecord
   end
 
   def valid_start_date
+    # if !@event.content_id = params[:content_id]
     errors.add(:startDate, "Start date cannot be less than today") if startDate < Date.today
+  #   else
+  #   errors.add(:startDate, "The start date begins within the date time content ") if @content.endDate < startDate < @content.startDate
+  #   end
   end
+
 end
