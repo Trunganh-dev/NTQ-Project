@@ -18,7 +18,7 @@
                   <a class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#exampleModal"></a>
                 </div>
                 <div class="col-md-1">
-                  <%= link_to "", @event,class: "glyphicon glyphicon-trash", method: :delete, data: { confirm: 'Are you sure to delete  this event?' },remote: true %>
+                  <%= link_to "", group_event_path(@event),class: "glyphicon glyphicon-trash", method: :delete, data: { confirm: 'Are you sure to delete  this event?' },remote: true %>
                 </div>
                 <div class="col-md-3">
                   <button type="button" class="close glyphicon glyphicon-remove" data-dismiss="modal"></button>
