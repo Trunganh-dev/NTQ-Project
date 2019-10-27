@@ -44,8 +44,9 @@ class ContentsController < ApplicationController
 
   def update
     if @content.update(content_params)
-     flash[:success] = "Content was updated"
-     redirect_to @group
+     respond_to do |format|
+      format.js {}
+     end
     else
      flash[:danger] = "Content was not updated"
      render 'edit'

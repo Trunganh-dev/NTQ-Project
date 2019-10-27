@@ -1,5 +1,4 @@
 json.array! @events do |event|
-
   date_format = '%Y-%m-%d'
 
   json.id event.id
@@ -19,8 +18,7 @@ json.array! @events do |event|
   json.end event.endDate.strftime(date_format)
 
   json.allDay true
+  json.update_url group_event_path(event.group_id, event.id, method: :patch)
 
-  json.update_url event_path(event, method: :patch)
-
-  json.edit_url edit_event_path(event)
+  json.edit_url edit_group_event_path(event.group_id, event.id)
 end

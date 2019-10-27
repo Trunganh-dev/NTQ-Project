@@ -16,5 +16,5 @@ json.start event.startDate.strftime(date_format)
 
 json.end event.endDate.strftime(date_format)
 
-json.update_url event_path(event, method: :patch)
-json.edit_url edit_event_path(event)
+json.update_url group_event_path(event.group_id, event, method: :patch)
+json.edit_url edit_group_event_path(event.group_id, event)
