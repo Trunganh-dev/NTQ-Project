@@ -38,7 +38,6 @@ class EventsController < ApplicationController
   def update
     @event.startDate = params[:event][:startDate]
     @event.update(event_params)
-    #redirect_to @event
   end
 
 
