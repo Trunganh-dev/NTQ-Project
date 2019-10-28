@@ -6,7 +6,11 @@
         <h4 class="modal-title">Create New Event</h4>
       </div>
       <div class="modal-body">
+        <% if !@event.content_id = params[:content_id] %>
         <%= render 'form', event: @event %>
+        <% else %>
+        <%= render 'formContent', event: @event %>
+        <% end %>
       </div>
     </div>
   </div>

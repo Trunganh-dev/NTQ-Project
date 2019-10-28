@@ -45,10 +45,11 @@ class ContentsController < ApplicationController
   def update
     if @content.update(content_params)
      respond_to do |format|
+      flash[:success] = "Content was updated"
       format.js {}
      end
     else
-     flash[:danger] = "Content was not updated"
+     flash.now[:danger] = "Content was not updated"
      render 'edit'
     end
   end

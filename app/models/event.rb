@@ -1,7 +1,6 @@
 class Event < ApplicationRecord
-  validates :title, presence: true, length: {maximum: 64 }
-  validates :something, presence: true, length: {maximum: 255 }
-  validates :document, presence: true
+  validates :title, length: {maximum: 64 }
+  validates :something, length: {maximum: 255 }
   validates :speaker, length: {maximum: 32 }
   validates :startDate, presence: true
   validate :valid_start_date
@@ -13,10 +12,15 @@ class Event < ApplicationRecord
   private
 
   def caculate_end_date
-    self.endDate = startDate + duration.to_i.minutes
+    self.endDate = startDate + duration.to_f.hours
   end
 
   def valid_start_date
+    # if !@event.content_id = params[:content_id]
     errors.add(:startDate, "Start date cannot be less than today") if startDate < Date.today
+  #   else
+  #   errors.add(:startDate, "The start date begins within the date time content ") if @content.endDate < startDate < @content.startDate
+  #   end
   end
+
 end

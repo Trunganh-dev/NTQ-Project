@@ -1,5 +1,5 @@
 $("#product-modal").html("<%= j render "edit" %>")
-$("#product-modal").modal("show")
-$('#edit_modal').on('shown.bs.modal', function() {
-  $('edit[data-validate]').enableClientSideValidations();
+//$("#product-modal").modal("show")
+$('#product-modal').on('shown.bs.modal', function() {
+  $('form[data-validate]').enableClientSideValidations();
 }).modal("show")
