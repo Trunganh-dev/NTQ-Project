@@ -1,10 +1,10 @@
 class Content < ApplicationRecord
-
-validates :title, presence: true, length: { minimum: 6, maximum: 64 }
-validates :description, presence: true
-validates :startDate, presence: true
-validates :endDate, presence: true
-validates :level, presence: true
+validates_presence_of :title, message: 'Title can not be blank'
+validates :title, length: { minimum: 6, maximum: 64 }
+validates_presence_of :description, message: 'description can not be blank'
+validates_presence_of :startDate, message: 'StartDate can not be blank'
+validates_presence_of :endDate, message: 'endDate can not be blank'
+validates_presence_of :level, message: 'endDate can not be blank'
 #validate :valid_start_date
 validate :valid_end_date
 

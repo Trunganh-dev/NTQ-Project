@@ -37,7 +37,11 @@ class EventsController < ApplicationController
 
   def update
     @event.startDate = params[:event][:startDate]
-    @event.update(event_params)
+    if @event.update(event_params)
+      flash[:success] = "Event was updated"
+    else
+      flash[:danger] = "Event was not updated"
+    end
   end
 
 
